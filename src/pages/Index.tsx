@@ -13,26 +13,50 @@ const slides = [
   {
     img: heroSlide1,
     kenburns: "animate-kenburns-1",
-    headline: "Design, Branding, and Modern Visibility",
-    headlineZh: "設計、品牌與現代能見度",
-    sub: "From digital presence to experiential storytelling, HSIN HSIN connects creative strategy with real-world brand expression.",
-    subZh: "從數位形象到體驗式敘事，欣欣將創意策略與真實品牌表達連結在一起。",
+    category: "Creative Enterprise",
+    categoryZh: "創意企業",
+    headline: "Design, Culture, and Brand in Motion",
+    headlineZh: "設計、文化與品牌動態",
+    sub: "From visual identity to experiential storytelling, HSIN HSIN connects creativity with business through thoughtful design, communication, and presentation.",
+    subZh: "從視覺識別到體驗式敘事，欣欣透過精心設計、傳播與呈現，將創意與商業連結在一起。",
+    btn1: "Explore Our Companies",
+    btn1Zh: "探索旗下企業",
+    btn1Link: "/companies",
+    btn2: "Our Story",
+    btn2Zh: "我們的故事",
+    btn2Link: "/about",
   },
   {
     img: heroSlide2,
     kenburns: "animate-kenburns-2",
+    category: "Craftsmanship Heritage",
+    categoryZh: "工藝傳承",
     headline: "Craftsmanship Rooted in Heritage",
     headlineZh: "植根於傳承的工藝精神",
-    sub: "Built on decades of framing expertise, material knowledge, and aesthetic precision, our foundation begins with the art of making.",
-    subZh: "奠基於數十年的裝裱專業、材料知識與美學精準，我們的根基始於創造的藝術。",
+    sub: "Built on decades of material knowledge, presentation expertise, and dedication to quality, our craftsmanship continues to shape lasting value across generations.",
+    subZh: "奠基於數十年的材料知識、呈現專業與對品質的執著，我們的工藝持續塑造跨世代的長久價值。",
+    btn1: "Discover Our Heritage",
+    btn1Zh: "探索我們的傳承",
+    btn1Link: "/founder",
+    btn2: "View Our Companies",
+    btn2Zh: "查看旗下企業",
+    btn2Link: "/companies",
   },
   {
     img: heroSlide3,
     kenburns: "animate-kenburns-3",
-    headline: "Teaching Creativity Across Generations",
-    headlineZh: "跨世代的創意傳承",
-    sub: "Through artistic mentorship and hands-on cultural learning, HSIN HSIN carries creative knowledge forward for the next generation.",
-    subZh: "透過藝術指導與文化實踐學習，欣欣將創意知識傳遞給下一代。",
+    category: "Art Education & Legacy",
+    categoryZh: "藝術教育與傳承",
+    headline: "Creative Legacy Through Art",
+    headlineZh: "透過藝術延續創意傳承",
+    sub: "Through artistic practice, cultural teaching, and hands-on exploration, HSIN HSIN carries creative knowledge forward into the next generation.",
+    subZh: "透過藝術實踐、文化教學與動手探索，欣欣將創意知識傳遞給下一代。",
+    btn1: "Explore Community & Culture",
+    btn1Zh: "探索文化社區",
+    btn1Link: "/community",
+    btn2: "Meet the Family Story",
+    btn2Zh: "認識家族故事",
+    btn2Link: "/founder",
   },
 ];
 
@@ -48,11 +72,13 @@ const Index = () => {
     return () => clearInterval(id);
   }, [next]);
 
+  const slide = slides[current];
+
   return (
     <Layout>
       {/* Hero Slider */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {slides.map((slide, i) => (
+        {slides.map((s, i) => (
           <div
             key={i}
             className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -60,42 +86,35 @@ const Index = () => {
             }`}
           >
             <img
-              src={slide.img}
+              src={s.img}
               alt=""
-              className={`absolute inset-0 w-full h-full object-cover ${slide.kenburns}`}
+              className={`absolute inset-0 w-full h-full object-cover ${s.kenburns}`}
             />
           </div>
         ))}
         <div className="absolute inset-0 hero-slide-overlay" />
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 max-w-3xl">
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-primary-foreground font-bold tracking-tight leading-none drop-shadow-lg">
-            HSIN HSIN
+          {/* Category label */}
+          <p className="text-accent text-xs md:text-sm uppercase tracking-[0.35em] font-semibold drop-shadow">
+            {t(slide.category, slide.categoryZh)}
+          </p>
+
+          {/* Slide headline — large and dominant */}
+          <h1 className="font-display text-3xl md:text-5xl lg:text-6xl text-primary-foreground font-bold tracking-tight leading-tight mt-4 drop-shadow-lg transition-all duration-700">
+            {t(slide.headline, slide.headlineZh)}
           </h1>
-          <p className="text-accent text-xs md:text-sm uppercase tracking-[0.35em] mt-3 font-semibold drop-shadow">
-            {t("Family Enterprise Group", "家族企業集團")}
-          </p>
 
-          {/* Slide-specific headline */}
-          <h2 className="font-display text-xl md:text-2xl lg:text-3xl text-primary-foreground font-semibold mt-8 leading-snug drop-shadow-md transition-all duration-700">
-            {t(slides[current].headline, slides[current].headlineZh)}
-          </h2>
-          <p className="text-primary-foreground/75 mt-3 text-sm md:text-base leading-relaxed max-w-xl drop-shadow transition-all duration-700">
-            {t(slides[current].sub, slides[current].subZh)}
-          </p>
-
-          <p className="text-primary-foreground/60 mt-6 text-xs md:text-sm tracking-wider font-light drop-shadow">
-            {t(
-              "Professional · Innovative · Extraordinary — Rooted in Value",
-              "專業・創新・非凡——為價值而生"
-            )}
+          {/* Supporting paragraph */}
+          <p className="text-primary-foreground/75 mt-4 text-sm md:text-base leading-relaxed max-w-xl drop-shadow transition-all duration-700">
+            {t(slide.sub, slide.subZh)}
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-4 mt-8">
-            <button onClick={() => { navigate("/companies"); window.scrollTo(0, 0); }} className="btn-primary">
-              {t("Explore Our Companies", "探索旗下企業")}
+            <button onClick={() => { navigate(slide.btn1Link); window.scrollTo(0, 0); }} className="btn-primary">
+              {t(slide.btn1, slide.btn1Zh)}
             </button>
-            <button onClick={() => { navigate("/about"); window.scrollTo(0, 0); }} className="btn-accent !text-primary-foreground !border-primary-foreground/40 hover:!bg-primary-foreground/10">
-              {t("Our Story", "我們的故事")}
+            <button onClick={() => { navigate(slide.btn2Link); window.scrollTo(0, 0); }} className="btn-accent !text-primary-foreground !border-primary-foreground/40 hover:!bg-primary-foreground/10">
+              {t(slide.btn2, slide.btn2Zh)}
             </button>
           </div>
         </div>

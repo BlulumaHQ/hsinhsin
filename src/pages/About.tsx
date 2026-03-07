@@ -16,9 +16,9 @@ const About = () => {
       />
 
       {/* Editorial About Image */}
-      <section className="py-0">
+      <section className="py-10 md:py-16">
         <div className="section-container max-w-5xl">
-          <div className="relative -mt-8 mb-12 rounded-lg overflow-hidden shadow-xl">
+          <div className="rounded-lg overflow-hidden shadow-xl">
             <img
               src={aboutImg}
               alt={t("HSIN HSIN — Professional · Innovative · Extraordinary", "欣欣企業——專業・創新・非凡")}
