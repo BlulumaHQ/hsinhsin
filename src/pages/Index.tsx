@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { companies } from "@/data/companies";
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
@@ -12,6 +14,7 @@ import heroSlide3 from "@/assets/hero-slide-3.jpg";
 const slides = [
   {
     img: heroSlide1,
+    alt: "Branding and event design installation at a trade show",
     kenburns: "animate-kenburns-1",
     category: "Creative Enterprise",
     categoryZh: "創意企業",
@@ -28,6 +31,7 @@ const slides = [
   },
   {
     img: heroSlide2,
+    alt: "Traditional custom picture framing workshop craftsmanship",
     kenburns: "animate-kenburns-2",
     category: "Craftsmanship Heritage",
     categoryZh: "工藝傳承",
@@ -44,6 +48,7 @@ const slides = [
   },
   {
     img: heroSlide3,
+    alt: "Asian artist teaching abstract fluid painting technique in art studio",
     kenburns: "animate-kenburns-3",
     category: "Art Education & Legacy",
     categoryZh: "藝術教育與傳承",
@@ -76,6 +81,13 @@ const Index = () => {
 
   return (
     <Layout>
+      <SEO
+        title="HSIN HSIN | Vancouver Family Enterprise Group"
+        description="HSIN HSIN is a Vancouver-based family enterprise connecting craftsmanship, art education, cultural events, lifestyle brands, and digital design through a multi-generational business ecosystem."
+        path="/"
+      />
+      <StructuredData />
+
       {/* Hero Slider */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {slides.map((s, i) => (
@@ -87,28 +99,22 @@ const Index = () => {
           >
             <img
               src={s.img}
-              alt=""
+              alt={s.alt}
               className={`absolute inset-0 w-full h-full object-cover ${s.kenburns}`}
             />
           </div>
         ))}
         <div className="absolute inset-0 hero-slide-overlay" />
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 max-w-3xl">
-          {/* Category label */}
           <p className="text-accent text-xs md:text-sm uppercase tracking-[0.35em] font-semibold drop-shadow">
             {t(slide.category, slide.categoryZh)}
           </p>
-
-          {/* Slide headline — large and dominant */}
           <h1 className="font-display text-3xl md:text-5xl lg:text-6xl text-primary-foreground font-bold tracking-tight leading-tight mt-4 drop-shadow-lg transition-all duration-700">
             {t(slide.headline, slide.headlineZh)}
           </h1>
-
-          {/* Supporting paragraph */}
           <p className="text-primary-foreground/75 mt-4 text-sm md:text-base leading-relaxed max-w-xl drop-shadow transition-all duration-700">
             {t(slide.sub, slide.subZh)}
           </p>
-
           <div className="flex flex-col sm:flex-row items-start gap-4 mt-8">
             <button onClick={() => { navigate(slide.btn1Link); window.scrollTo(0, 0); }} className="btn-primary">
               {t(slide.btn1, slide.btn1Zh)}
@@ -118,7 +124,6 @@ const Index = () => {
             </button>
           </div>
         </div>
-        {/* Slide indicators */}
         <div className="absolute bottom-8 left-6 sm:left-12 lg:left-20 z-10 flex gap-2">
           {slides.map((_, i) => (
             <button
@@ -127,6 +132,7 @@ const Index = () => {
               className={`w-2.5 h-2.5 rounded-full transition-all ${
                 i === current ? "bg-accent w-8" : "bg-primary-foreground/40"
               }`}
+              aria-label={`Go to slide ${i + 1}`}
             />
           ))}
         </div>
@@ -139,12 +145,12 @@ const Index = () => {
             {t("About HSIN HSIN", "關於欣欣")}
           </p>
           <h2 className="font-display text-2xl md:text-4xl text-foreground mb-6">
-            {t("About HSIN HSIN", "關於欣欣")}
+            {t("A Vancouver Family Enterprise", "溫哥華家族企業")}
           </h2>
           <div className="w-16 h-0.5 bg-accent mx-auto mb-8" />
           <p className="text-muted-foreground leading-relaxed mb-8">
             {t(
-              "Founded in Vancouver in 1995, HSIN HSIN is a diversified family enterprise group spanning art craftsmanship, cultural education, event planning, lifestyle retail, and digital brand strategy. Guided by the values of professionalism, innovation, and long-term stewardship, the group continues to evolve across generations while remaining rooted in community, culture, and quality.",
+              "Founded in Vancouver, Canada in 1995, HSIN HSIN is a diversified family enterprise group spanning art craftsmanship, cultural education, event planning, lifestyle retail, and digital brand strategy. Guided by the values of professionalism, innovation, and long-term stewardship, the group continues to evolve across generations while remaining rooted in community, culture, and quality.",
               "欣欣企業成立於 1995 年加拿大溫哥華，是一個橫跨藝術工藝、文化教育、活動策劃、生活選品與品牌數位整合的家族企業集團。集團以「專業、創新、非凡」為核心精神，結合文化、美學、創意與永續價值，持續推動品牌升級、社區連結與世代傳承。"
             )}
           </p>
@@ -154,13 +160,17 @@ const Index = () => {
               "專業・創新・非凡，為價值而生。永續經營，世代傳承。"
             )}
           </blockquote>
+          <div className="mt-8">
+            <Link to="/about" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+              {t("Learn more about us", "了解更多")} <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Our Ecosystem Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="section-container">
-          {/* Ecosystem Intro */}
           <div className="max-w-3xl mx-auto text-center mb-16">
             <p className="text-accent text-xs uppercase tracking-widest font-medium mb-3">
               {t("Our Portfolio", "企業版圖")}
@@ -189,32 +199,27 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Company Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {companies.map((company) => {
               const inner = (
                 <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
-                  {/* Category */}
                   <div className="px-8 pt-6">
                     <p className="text-accent text-[11px] uppercase tracking-[0.2em] font-semibold">
                       {t(company.categoryEn, company.categoryZh)}
                     </p>
                   </div>
-                  {/* Company Name */}
                   <div className="px-8 pt-2 pb-1">
                     <h3 className="font-display text-lg text-foreground">
                       {t(company.nameEn, company.nameZh)}
                     </h3>
                   </div>
-                  {/* Logo Container - premium brand panel */}
                   <div className="h-[180px] flex items-center justify-center pt-[18px] pb-[18px] px-[12px]">
                     <img
                       src={company.logo}
-                      alt={company.nameEn}
+                      alt={`${company.nameEn} logo`}
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  {/* Content */}
                   <div className="px-8 pb-8 flex flex-col flex-1">
                     <p className="text-muted-foreground text-sm leading-relaxed flex-1">
                       {t(company.descEn, company.descZh)}
@@ -247,6 +252,12 @@ const Index = () => {
                 </Link>
               );
             })}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/insights" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+              {t("Read our latest insights", "閱讀我們的最新觀點")} <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>

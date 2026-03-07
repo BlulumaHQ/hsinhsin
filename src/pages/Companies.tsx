@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import { companies } from "@/data/companies";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
@@ -18,6 +19,12 @@ const Companies = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Our Companies | HSIN HSIN Business Ecosystem"
+        description="Explore the HSIN HSIN business ecosystem — a diversified portfolio of companies spanning craftsmanship, art education, cultural events, lifestyle brands, and digital design in Vancouver, Canada."
+        path="/companies"
+      />
+
       <PageHero
         title={t("Our Companies", "旗下企業")}
         subtitle={t(
@@ -82,7 +89,7 @@ const Companies = () => {
                         <div className="w-full flex items-center justify-center h-[180px] pt-[18px] pb-[18px] px-[12px]">
                           <img
                             src={company.logo}
-                            alt={company.nameEn}
+                            alt={`${company.nameEn} logo`}
                             className="w-full h-full object-contain"
                           />
                         </div>
@@ -140,6 +147,15 @@ const Companies = () => {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Internal link to Insights */}
+      <section className="pb-16">
+        <div className="section-container max-w-3xl text-center">
+          <Link to="/insights" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+            {t("Read insights on craftsmanship and enterprise", "閱讀工藝與企業觀點")} <ArrowRight size={14} />
+          </Link>
         </div>
       </section>
     </Layout>

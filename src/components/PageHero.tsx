@@ -10,7 +10,7 @@ const PageHero = ({ title, subtitle }: PageHeroProps) => {
     <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
       <img
         src={heroImg}
-        alt="HSIN HSIN"
+        alt="HSIN HSIN family enterprise branding and event design"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 page-overlay" />
