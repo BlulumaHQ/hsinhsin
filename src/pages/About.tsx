@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { ArrowRight } from "lucide-react";
-import aboutImg from "@/assets/about-us-hero.jpg";
+import aboutImg from "@/assets/about-us-hero.webp";
 
 const timelineItems = [
   { year: "1995", en: "Family enterprise established in Vancouver, Canada", zh: "家族企業在加拿大溫哥華成立" },
