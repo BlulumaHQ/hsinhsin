@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logoImg from "@/assets/logo-hsinhsin.jpg";
+import logoImg from "@/assets/logo-hsinhsin.svg";
 
 const Footer = () => {
   const { t } = useLanguage();

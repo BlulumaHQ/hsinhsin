@@ -80,8 +80,8 @@ const Index = () => {
             {companies.map((company) => {
               const inner = (
                 <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
-                  <div className="h-28 flex items-center justify-center mb-6">
-                    <img src={company.logo} alt={company.nameEn} className="max-h-24 max-w-[220px] w-auto object-contain" />
+                  <div className="h-40 flex items-center justify-center mb-6">
+                    <img src={company.logo} alt={company.nameEn} className="max-h-36 max-w-[280px] w-auto object-contain" />
                   </div>
                   <p className="text-accent text-xs uppercase tracking-widest font-medium mb-2">
                     {t(company.taglineEn, company.taglineZh)}

@@ -1,8 +1,8 @@
-import logoHsinFraming from "@/assets/logo-hsin-framing.png";
-import logoCambridgeArt from "@/assets/logo-cambridge-art.png";
+import logoHsinFraming from "@/assets/logo-hsin-framing.svg";
+import logoCambridgeArt from "@/assets/logo-cambridge-art.svg";
 import logoHsinPr from "@/assets/logo-hsin-pr.png";
 import logoLaPetiteElli from "@/assets/logo-la-petite-elli.png";
-import logoBluluma from "@/assets/logo-bluluma.png";
+import logoBluluma from "@/assets/logo-bluluma.svg";
 
 export interface Company {
   id: string;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, X } from "lucide-react";
-import logoImg from "@/assets/logo-hsinhsin.jpg";
+import logoImg from "@/assets/logo-hsinhsin.svg";
 
 const Header = () => {
   const { lang, setLang, t } = useLanguage();
