@@ -4,9 +4,9 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { ArrowRight } from "lucide-react";
-import foundersImg from "@/assets/founder-portrait-new.png";
-import founderHeritageImg from "@/assets/founder-heritage.jpg";
-import ceoImg from "@/assets/founder-portrait.jpg";
+import foundersImg from "@/assets/founders-portrait.webp";
+import founderHeritageImg from "@/assets/founder-heritage.webp";
+import ceoImg from "@/assets/founder-portrait-new.webp";
 
 const Founder = () => {
   const { t } = useLanguage();
