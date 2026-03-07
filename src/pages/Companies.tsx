@@ -89,9 +89,9 @@ const Companies = () => {
                         <div
                           style={{
                             width: "100%",
-                            height: "200px",
-                            paddingTop: "14px",
-                            paddingBottom: "14px",
+                            height: "260px",
+                            paddingTop: "16px",
+                            paddingBottom: "16px",
                             paddingLeft: "0px",
                             paddingRight: "0px",
                             display: "flex",
