@@ -55,7 +55,8 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/10 mt-12 pt-6 text-center">
           <p className="text-primary-foreground/40 text-xs">
-            © {new Date().getFullYear()} HSIN HSIN Family Enterprise Group. {t("All rights reserved.", "版權所有。")}
+            © {new Date().getFullYear()} HSIN HSIN Family Enterprise Group. {t("All rights reserved.", "版權所有。")} | Web Design by{" "}
+            <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">Bluluma</a>
           </p>
         </div>
       </div>
