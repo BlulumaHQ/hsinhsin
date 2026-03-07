@@ -86,11 +86,11 @@ const Companies = () => {
                   const content = (
                     <div className="flex flex-col md:flex-row items-center gap-8 group">
                       <div className="w-full md:w-1/3 flex justify-center">
-                        <div className="w-full flex items-center justify-center py-6">
+                        <div className="w-full h-[200px] flex items-center justify-center py-4 px-2">
                           <img
                             src={company.logo}
                             alt={`${company.nameEn} logo`}
-                            className="w-full max-h-[180px] object-contain"
+                            className="w-[92%] h-full object-contain object-center"
                           />
                         </div>
                       </div>
