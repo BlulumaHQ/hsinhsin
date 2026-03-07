@@ -201,58 +201,9 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {companies.map((company) => {
-              const inner = (
-                <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
-                  <div className="px-8 pt-6">
-                    <p className="text-accent text-[11px] uppercase tracking-[0.2em] font-semibold">
-                      {t(company.categoryEn, company.categoryZh)}
-                    </p>
-                  </div>
-                  <div className="px-8 pt-2 pb-1">
-                    <h3 className="font-display text-lg text-foreground">
-                      {t(company.nameEn, company.nameZh)}
-                    </h3>
-                  </div>
-                  <div className="w-full h-[200px] py-4">
-                    <img
-                      src={company.logo}
-                      alt={`${company.nameEn} logo`}
-                      className="w-full h-full object-contain object-center"
-                    />
-                  </div>
-                  <div className="px-8 pb-8 flex flex-col flex-1">
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                      {t(company.descEn, company.descZh)}
-                    </p>
-                    <div className="mt-5 flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
-                      {company.external ? (
-                        <>
-                          {t("Visit Website", "訪問網站")} <ExternalLink size={14} />
-                        </>
-                      ) : (
-                        <>
-                          {t("Learn More", "了解更多")} <ArrowRight size={14} />
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              );
-
-              if (company.external) {
-                return (
-                  <a key={company.id} href={company.external} target="_blank" rel="noopener noreferrer">
-                    {inner}
-                  </a>
-                );
-              }
-              return (
-                <Link key={company.id} to={`/companies/${company.id}`}>
-                  {inner}
-                </Link>
-              );
-            })}
+            {companies.map((company) => (
+              <CompanyCard key={company.id} company={company} />
+            ))}
           </div>
 
           <div className="text-center mt-12">
