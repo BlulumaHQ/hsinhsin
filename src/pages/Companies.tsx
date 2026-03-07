@@ -85,16 +85,34 @@ const Companies = () => {
                 {categoryCompanies.map((company) => {
                   const content = (
                     <div className="flex flex-col md:flex-row items-center gap-8 group">
-                      <div className="w-full md:w-1/3">
-                        <div className="w-full h-[200px] py-4">
+                      <div className="w-full md:w-2/5">
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "200px",
+                            paddingTop: "14px",
+                            paddingBottom: "14px",
+                            paddingLeft: "0px",
+                            paddingRight: "0px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
                           <img
                             src={company.logo}
                             alt={`${company.nameEn} logo`}
-                            className="w-full h-full object-contain object-center"
+                            style={{
+                              display: "block",
+                              width: "94%",
+                              height: "100%",
+                              objectFit: "contain",
+                              objectPosition: "center center",
+                            }}
                           />
                         </div>
                       </div>
-                      <div className="w-full md:w-2/3">
+                      <div className="w-full md:w-3/5">
                         <p className="text-accent text-[11px] uppercase tracking-[0.2em] font-semibold mb-1">
                           {t(company.categoryEn, company.categoryZh)}
                         </p>
