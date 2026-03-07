@@ -11,7 +11,7 @@ const PageHero = ({ title, subtitle }: PageHeroProps) => {
       <img
         src={heroImg}
         alt="HSIN HSIN family enterprise branding and event design"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-[center_70%]"
       />
       <div className="absolute inset-0 page-overlay" />
       <div className="relative z-10 text-center px-4 py-20 md:py-28">
