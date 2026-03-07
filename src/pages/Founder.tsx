@@ -1,7 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
-import foundersImg from "@/assets/founders-portrait.jpg";
+import foundersImg from "@/assets/founder-portrait-new.png";
+import founderHeritageImg from "@/assets/founder-heritage.jpg";
 import ceoImg from "@/assets/founder-portrait.jpg";
 
 const Founder = () => {
@@ -35,13 +36,13 @@ const Founder = () => {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="section-container max-w-5xl">
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-2/5">
+            <div className="md:w-2/5 space-y-6">
               <div className="rounded-lg overflow-hidden shadow-lg">
                 <img src={foundersImg} alt={t("The Lin Family Founders", "林氏家族創辦人")} className="w-full h-auto object-cover" />
               </div>
-              <p className="text-center text-muted-foreground text-xs mt-3 italic">
-                {t("Image placeholder — to be replaced", "圖片預留位——稍後替換")}
-              </p>
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <img src={founderHeritageImg} alt={t("Hsin Framing & Moulding early days", "欣欣畫框早期")} className="w-full h-auto object-cover" />
+              </div>
             </div>
             <div className="md:w-3/5 space-y-5 text-muted-foreground leading-relaxed">
               <h2 className="font-display text-2xl md:text-3xl text-foreground">

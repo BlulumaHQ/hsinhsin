@@ -1,10 +1,12 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import aboutImg from "@/assets/about-us-hero.jpg";
 
 const About = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <Layout>
@@ -12,7 +14,21 @@ const About = () => {
         title={t("About HSIN HSIN", "關於欣欣")}
         subtitle={t("The Lin Family Legacy", "林氏家族傳承")}
       />
-      <section className="py-16 md:py-24">
+
+      {/* Editorial About Image */}
+      <section className="py-0">
+        <div className="section-container max-w-5xl">
+          <div className="relative -mt-8 mb-12 rounded-lg overflow-hidden shadow-xl">
+            <img
+              src={aboutImg}
+              alt={t("HSIN HSIN — Professional · Innovative · Extraordinary", "欣欣企業——專業・創新・非凡")}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-24">
         <div className="section-container max-w-3xl">
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <p>
@@ -41,9 +57,9 @@ const About = () => {
             )}
           </blockquote>
           <div className="mt-10">
-            <Link to="/founder" className="btn-primary">
+            <button onClick={() => { navigate("/founder"); window.scrollTo(0, 0); }} className="btn-primary">
               {t("Our Story", "我們的故事")}
-            </Link>
+            </button>
           </div>
         </div>
       </section>

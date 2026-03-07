@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, X } from "lucide-react";
-import logoImg from "@/assets/logo-hsinhsin.svg";
+import logoImg from "@/assets/logo-hsinhsin-new.png";
 
 const Header = () => {
   const { lang, setLang, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { path: "/", labelEn: "Home", labelZh: "首頁" },
@@ -19,25 +20,31 @@ const Header = () => {
     { path: "/contact", labelEn: "Contact", labelZh: "聯繫我們" },
   ];
 
+  const handleNavClick = (path: string) => {
+    setMenuOpen(false);
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm">
       <div className="section-container flex items-center justify-between h-24 md:h-36">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logoImg} alt="HSIN HSIN" className="h-[75px] md:h-[120px] w-auto" />
-        </Link>
+        <button onClick={() => handleNavClick("/")} className="flex items-center gap-3">
+          <img src={logoImg} alt="HSIN HSIN" className="h-[70px] md:h-[120px] w-auto" />
+        </button>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => (
-            <Link
+            <button
               key={item.path}
-              to={item.path}
+              onClick={() => handleNavClick(item.path)}
               className={`text-primary-foreground/80 hover:text-accent text-sm font-medium tracking-wide transition-colors ${
                 location.pathname === item.path ? "text-accent" : ""
               }`}
             >
               {t(item.labelEn, item.labelZh)}
-            </Link>
+            </button>
           ))}
           <button
             onClick={() => setLang(lang === "en" ? "zh" : "en")}
@@ -65,16 +72,15 @@ const Header = () => {
       {menuOpen && (
         <nav className="lg:hidden bg-primary border-t border-primary-foreground/10 pb-4">
           {navItems.map((item) => (
-            <Link
+            <button
               key={item.path}
-              to={item.path}
-              onClick={() => setMenuOpen(false)}
-              className={`block px-6 py-3 text-primary-foreground/80 hover:text-accent text-sm ${
+              onClick={() => handleNavClick(item.path)}
+              className={`block w-full text-left px-6 py-3 text-primary-foreground/80 hover:text-accent text-sm ${
                 location.pathname === item.path ? "text-accent" : ""
               }`}
             >
               {t(item.labelEn, item.labelZh)}
-            </Link>
+            </button>
           ))}
         </nav>
       )}

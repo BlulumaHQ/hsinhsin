@@ -1,46 +1,90 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { companies } from "@/data/companies";
 import Layout from "@/components/Layout";
-import heroImg from "@/assets/hero-craftsmanship.jpg";
 import { ArrowRight, ExternalLink } from "lucide-react";
+
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
+
+const slides = [
+  { img: heroSlide1, kenburns: "animate-kenburns-1" },
+  { img: heroSlide2, kenburns: "animate-kenburns-2" },
+  { img: heroSlide3, kenburns: "animate-kenburns-3" },
+];
 
 const Index = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), []);
+
+  useEffect(() => {
+    const id = setInterval(next, 6000);
+    return () => clearInterval(id);
+  }, [next]);
 
   return (
     <Layout>
-      {/* Hero */}
+      {/* Hero Slider */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <img src={heroImg} alt="Craftsmanship heritage" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 hero-overlay" />
+        {slides.map((slide, i) => (
+          <div
+            key={i}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              i === current ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img
+              src={slide.img}
+              alt=""
+              className={`absolute inset-0 w-full h-full object-cover ${slide.kenburns}`}
+            />
+          </div>
+        ))}
+        <div className="absolute inset-0 hero-slide-overlay" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-primary-foreground font-bold tracking-tight leading-tight">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-primary-foreground font-bold tracking-tight leading-tight drop-shadow-lg">
             HSIN HSIN
           </h1>
-          <p className="text-accent text-sm md:text-base uppercase tracking-[0.3em] mt-3 font-medium">
+          <p className="text-accent text-sm md:text-base uppercase tracking-[0.3em] mt-3 font-medium drop-shadow">
             {t("Family Enterprise Group", "家族企業集團")}
           </p>
-          <p className="text-primary-foreground/70 mt-5 text-sm md:text-base font-light tracking-wider">
+          <p className="text-primary-foreground/80 mt-5 text-sm md:text-base font-light tracking-wider drop-shadow">
             {t(
               "Professional · Innovative · Extraordinary — Rooted in Value",
               "專業・創新・非凡——為價值而生"
             )}
           </p>
-          <p className="text-primary-foreground/60 mt-6 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+          <p className="text-primary-foreground/70 mt-6 text-sm md:text-base leading-relaxed max-w-xl mx-auto drop-shadow">
             {t(
               "HSIN HSIN is a Vancouver-based family enterprise group spanning craftsmanship, art education, events and public relations, lifestyle retail, and digital brand development. Rooted in heritage and guided by long-term stewardship, the group brings together creativity, quality, and community through a diversified ecosystem of businesses.",
               "欣欣是一家位於溫哥華的家族企業集團，橫跨工藝、藝術教育、活動與公共關係、生活零售及數位品牌發展。植根於傳承並以長期管理為導向，集團通過多元化的企業生態系統，將創意、品質和社區連結在一起。"
             )}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-            <Link to="/companies" className="btn-primary">
+            <button onClick={() => { navigate("/companies"); window.scrollTo(0, 0); }} className="btn-primary">
               {t("Explore Our Companies", "探索旗下企業")}
-            </Link>
-            <Link to="/about" className="btn-accent">
+            </button>
+            <button onClick={() => { navigate("/about"); window.scrollTo(0, 0); }} className="btn-accent !text-primary-foreground !border-primary-foreground/40 hover:!bg-primary-foreground/10">
               {t("Our Story", "我們的故事")}
-            </Link>
+            </button>
           </div>
+        </div>
+        {/* Slide indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${
+                i === current ? "bg-accent w-8" : "bg-primary-foreground/40"
+              }`}
+            />
+          ))}
         </div>
       </section>
 
@@ -106,21 +150,28 @@ const Index = () => {
             {companies.map((company) => {
               const inner = (
                 <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
-                  {/* Logo Container */}
-                  <div className="h-[180px] flex items-center justify-center p-2">
-                    <img src={company.logo} alt={company.nameEn} className="max-h-full w-full object-contain" />
+                  {/* Category */}
+                  <div className="px-8 pt-6">
+                    <p className="text-accent text-[11px] uppercase tracking-[0.2em] font-semibold">
+                      {t(company.categoryEn, company.categoryZh)}
+                    </p>
+                  </div>
+                  {/* Company Name */}
+                  <div className="px-8 pt-2 pb-1">
+                    <h3 className="font-display text-lg text-foreground">
+                      {t(company.nameEn, company.nameZh)}
+                    </h3>
+                  </div>
+                  {/* Logo Container - premium brand panel */}
+                  <div className="h-[180px] flex items-center justify-center pt-[18px] pb-[18px] px-[12px]">
+                    <img
+                      src={company.logo}
+                      alt={company.nameEn}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   {/* Content */}
                   <div className="px-8 pb-8 flex flex-col flex-1">
-                    <p className="text-accent text-[11px] uppercase tracking-[0.2em] font-semibold mb-2">
-                      {t(company.categoryEn, company.categoryZh)}
-                    </p>
-                    <h3 className="font-display text-lg text-foreground mb-1">
-                      {t(company.nameEn, company.nameZh)}
-                    </h3>
-                    <p className="text-muted-foreground/50 text-xs mb-3 italic">
-                      {t(company.taglineEn, company.taglineZh)}
-                    </p>
                     <p className="text-muted-foreground text-sm leading-relaxed flex-1">
                       {t(company.descEn, company.descZh)}
                     </p>
