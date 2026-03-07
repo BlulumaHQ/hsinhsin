@@ -1,7 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
-import founderImg from "@/assets/founder-portrait.jpg";
+import foundersImg from "@/assets/founders-portrait.jpg";
+import ceoImg from "@/assets/founder-portrait.jpg";
 
 const Founder = () => {
   const { t } = useLanguage();
@@ -18,7 +19,7 @@ const Founder = () => {
     { year: "1995", en: "HSIN HSIN Family Enterprise founded in Vancouver", zh: "欣欣家族企業在溫哥華成立" },
     { year: "", en: "North America Million Dollar Writer — Seven consecutive years at Maison Birks", zh: "連續七屆榮獲 Maison Birks「North America Million Dollar Writer」殊榮" },
     { year: "", en: "Brand Ambassador for Van Cleef & Arpels, Graff, and Maison Birks", zh: "擔任梵克雅寶、格拉夫及 Maison Birks 品牌大使" },
-    { year: "", en: "Founded HH Nexus Holdings — expanded group structure", zh: "成立衡寰國際控股——擴展集團架構" },
+    { year: "", en: "Founded HH Nexus Capital — expanded group structure", zh: "成立衡寰國際資本——擴展集團架構" },
     { year: "", en: "Fundraising Chair, Canadian Liver Foundation — raised over CAD $2 million", zh: "加拿大肝臟基金會募款主席——成功募得超過兩百萬加元" },
     { year: "2023", en: "Outstanding Woman of Vancouver Award", zh: "獲頒「溫哥華傑出女士」榮譽獎項" },
   ];
@@ -26,25 +27,75 @@ const Founder = () => {
   return (
     <Layout>
       <PageHero
-        title={t("Emily Lin 林欣怡", "Emily Lin 林欣怡")}
-        subtitle={t("Founder / Group President", "創辦人 / 集團總裁")}
+        title={t("The Lin Family Legacy", "林氏家族傳承")}
+        subtitle={t("Heritage, Craftsmanship & Stewardship", "傳承・工藝・永續經營")}
       />
+
+      {/* Founders Section */}
+      <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="section-container max-w-5xl">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="md:w-2/5">
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <img src={foundersImg} alt={t("The Lin Family Founders", "林氏家族創辦人")} className="w-full h-auto object-cover" />
+              </div>
+              <p className="text-center text-muted-foreground text-xs mt-3 italic">
+                {t("Image placeholder — to be replaced", "圖片預留位——稍後替換")}
+              </p>
+            </div>
+            <div className="md:w-3/5 space-y-5 text-muted-foreground leading-relaxed">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground">
+                {t("The Lin Family Legacy", "林氏家族傳承")}
+              </h2>
+              <p>
+                {t(
+                  "The story of HSIN HSIN begins with the founding generation of the Lin family, who established the business in Vancouver in 1995 with a commitment to craftsmanship, integrity, and long-term relationships.",
+                  "欣欣的故事始於林氏家族的創始一代，他們於 1995 年在溫哥華創立了這家企業，秉持工藝精神、誠信經營與長期關係的承諾。"
+                )}
+              </p>
+              <p>
+                {t(
+                  "What began as a small family operation rooted in traditional craftsmanship gradually evolved into a diversified enterprise connecting art, culture, education, and lifestyle businesses.",
+                  "最初只是一個植根於傳統工藝的小型家族事業，逐步發展成為一個連結藝術、文化、教育與生活方式的多元化企業。"
+                )}
+              </p>
+              <p>
+                {t(
+                  "From the earliest days, the family believed that craftsmanship was not only about making objects, but about preserving beauty, culture, and meaning.",
+                  "從創業之初，家族便深信工藝不僅在於製作物品，更在於保存美感、文化與意義。"
+                )}
+              </p>
+              <p>
+                {t(
+                  "Today HSIN HSIN represents a new generation of family enterprise—blending heritage craftsmanship with contemporary entrepreneurship and cultural engagement.",
+                  "如今，欣欣代表著新一代家族企業——將傳統工藝與當代創業精神及文化參與融為一體。"
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CEO Section */}
       <section className="py-16 md:py-24">
         <div className="section-container max-w-5xl">
-          {/* Portrait + Intro */}
           <div className="flex flex-col md:flex-row gap-12 mb-16">
             <div className="md:w-1/3">
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src={founderImg} alt="Emily Lin" className="w-full h-auto object-cover" />
+                <img src={ceoImg} alt="Emily Lin" className="w-full h-auto object-cover" />
               </div>
               <div className="mt-6 text-center md:text-left">
                 <h2 className="font-display text-2xl text-foreground">Emily Lin</h2>
                 <p className="text-accent text-sm uppercase tracking-widest mt-1 font-medium">
-                  {t("Founder / Group President", "創辦人 / 集團總裁")}
+                  {t("CEO · HH Nexus Capital", "CEO · 衡寰國際資本")}
                 </p>
+                <p className="text-muted-foreground text-xs mt-1">Vancouver, BC, Canada</p>
               </div>
             </div>
             <div className="md:w-2/3 space-y-5 text-muted-foreground leading-relaxed">
+              <h3 className="font-display text-xl text-foreground">
+                {t("Emily Lin 林欣怡", "Emily Lin 林欣怡")}
+              </h3>
               <p>
                 {t(
                   "Emily Lin is a cross-disciplinary entrepreneur and brand strategist, currently leading HH Nexus Capital while also driving the long-term development of the broader family enterprise. Her experience spans craftsmanship industries, luxury jewelry, high-net-worth client service, integrated brand strategy, and city-scale cultural event planning.",
@@ -59,8 +110,8 @@ const Founder = () => {
               </p>
               <p>
                 {t(
-                  "After returning to the family enterprise, Emily established HH Nexus Holdings as a broader group structure and expanded multiple platforms including Hsin Hsin Events & PR and La Petite Elli Coffee & Tea. Her work has focused on connecting craftsmanship heritage, cultural programming, healthy lifestyle products, and modern brand development into a more contemporary and digitally capable ecosystem.",
-                  "回歸家族企業後，她整合成立衡寰國際控股（HH Nexus Holdings），並拓展多元品牌平台，包括 Hsin Hsin Events & PR（欣欣向榮活動策劃公關公司）與生活方式品牌 La Petite Elli Coffee & Tea，致力於結合文化創意、城市活動與健康生活產業，推動企業品牌年輕化與數位化發展。"
+                  "After returning to the family enterprise, Emily established HH Nexus Capital as a broader group structure and expanded multiple platforms including Hsin Hsin Events & PR and La Petite Elli Coffee & Tea. Her work has focused on connecting craftsmanship heritage, cultural programming, healthy lifestyle products, and modern brand development into a more contemporary and digitally capable ecosystem.",
+                  "回歸家族企業後，她整合成立衡寰國際資本（HH Nexus Capital），並拓展多元品牌平台，包括 Hsin Hsin Events & PR（欣欣向榮活動策劃公關公司）與生活方式品牌 La Petite Elli Coffee & Tea，致力於結合文化創意、城市活動與健康生活產業，推動企業品牌年輕化與數位化發展。"
                 )}
               </p>
               <p>

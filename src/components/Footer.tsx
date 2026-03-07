@@ -25,7 +25,7 @@ const Footer = () => {
             <div className="flex flex-col gap-2">
               <Link to="/about" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("About Us", "關於我們")}</Link>
               <Link to="/companies" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Our Companies", "旗下企業")}</Link>
-              <Link to="/founder" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Founder", "創辦人")}</Link>
+              <Link to="/founder" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Our Story", "我們的故事")}</Link>
               <Link to="/community" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Community", "文化社區")}</Link>
               <Link to="/contact" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Contact", "聯繫")}</Link>
             </div>
