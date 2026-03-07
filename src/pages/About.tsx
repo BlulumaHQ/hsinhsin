@@ -42,7 +42,7 @@ const About = () => {
           </blockquote>
           <div className="mt-10">
             <Link to="/founder" className="btn-primary">
-              {t("Meet Our Founder", "認識創辦人")}
+              {t("Our Story", "我們的故事")}
             </Link>
           </div>
         </div>

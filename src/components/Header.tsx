@@ -13,7 +13,7 @@ const Header = () => {
     { path: "/", labelEn: "Home", labelZh: "首頁" },
     { path: "/about", labelEn: "About Us", labelZh: "關於我們" },
     { path: "/companies", labelEn: "Our Companies", labelZh: "旗下企業" },
-    { path: "/founder", labelEn: "Founder", labelZh: "創辦人" },
+    { path: "/founder", labelEn: "Our Story", labelZh: "我們的故事" },
     { path: "/community", labelEn: "Community", labelZh: "文化社區" },
     { path: "/insights", labelEn: "Insights", labelZh: "觀點" },
     { path: "/contact", labelEn: "Contact", labelZh: "聯繫我們" },
