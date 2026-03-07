@@ -107,8 +107,8 @@ const Index = () => {
               const inner = (
                 <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
                   {/* Logo Container */}
-                  <div className="h-[140px] flex items-center justify-center px-6 py-4">
-                    <img src={company.logo} alt={company.nameEn} className="max-h-[120px] w-full object-contain" />
+                  <div className="h-[180px] flex items-center justify-center p-2">
+                    <img src={company.logo} alt={company.nameEn} className="max-h-full w-full object-contain" />
                   </div>
                   {/* Content */}
                   <div className="px-8 pb-8 flex flex-col flex-1">
