@@ -213,11 +213,11 @@ const Index = () => {
                       {t(company.nameEn, company.nameZh)}
                     </h3>
                   </div>
-                  <div className="w-full h-[200px] flex items-center justify-center py-4 px-2">
+                  <div className="w-full h-[200px] py-4">
                     <img
                       src={company.logo}
                       alt={`${company.nameEn} logo`}
-                      className="w-[92%] h-full object-contain object-center"
+                      className="w-full h-full object-contain object-center"
                     />
                   </div>
                   <div className="px-8 pb-8 flex flex-col flex-1">
