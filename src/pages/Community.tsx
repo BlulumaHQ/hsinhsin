@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
-import { Palette, GraduationCap, Users, Leaf } from "lucide-react";
+import SEO from "@/components/SEO";
+import { Palette, GraduationCap, Users, Leaf, ArrowRight } from "lucide-react";
 
 const Community = () => {
   const { t } = useLanguage();
@@ -39,6 +41,12 @@ const Community = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Community & Culture | HSIN HSIN"
+        description="Explore how HSIN HSIN supports cultural heritage, creative education, community engagement, and responsible lifestyle choices in Vancouver, Canada."
+        path="/community"
+      />
+
       <PageHero
         title={t("Community, Culture & Responsibility", "社區、文化與責任")}
       />
@@ -64,6 +72,14 @@ const Community = () => {
                 </p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12 flex flex-wrap justify-center gap-6">
+            <Link to="/founder" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+              {t("Meet the Lin Family", "認識林氏家族")} <ArrowRight size={14} />
+            </Link>
+            <Link to="/about" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+              {t("About HSIN HSIN", "關於欣欣")} <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>

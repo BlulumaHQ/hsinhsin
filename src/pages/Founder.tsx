@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
+import { ArrowRight } from "lucide-react";
 import foundersImg from "@/assets/founder-portrait-new.png";
 import founderHeritageImg from "@/assets/founder-heritage.jpg";
 import ceoImg from "@/assets/founder-portrait.jpg";
@@ -27,6 +30,12 @@ const Founder = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Founder Story | The Lin Family Legacy"
+        description="Discover the story of the Lin family and their journey building HSIN HSIN, a multi-generational family enterprise in Vancouver, Canada spanning craftsmanship, culture, and creative business."
+        path="/founder"
+      />
+
       <PageHero
         title={t("The Lin Family Legacy", "林氏家族傳承")}
         subtitle={t("Heritage, Craftsmanship & Stewardship", "傳承・工藝・永續經營")}
@@ -38,10 +47,10 @@ const Founder = () => {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-2/5 space-y-6">
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src={foundersImg} alt={t("The Lin Family Founders", "林氏家族創辦人")} className="w-full h-auto object-cover" />
+                <img src={foundersImg} alt={t("The Lin Family founders of HSIN HSIN enterprise", "欣欣企業林氏家族創辦人")} className="w-full h-auto object-cover" />
               </div>
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src={founderHeritageImg} alt={t("Hsin Framing & Moulding early days", "欣欣畫框早期")} className="w-full h-auto object-cover" />
+                <img src={founderHeritageImg} alt={t("Hsin Framing & Moulding early craftsmanship workshop", "欣欣畫框早期工藝工作坊")} className="w-full h-auto object-cover" />
               </div>
             </div>
             <div className="md:w-3/5 space-y-5 text-muted-foreground leading-relaxed">
@@ -50,7 +59,7 @@ const Founder = () => {
               </h2>
               <p>
                 {t(
-                  "The story of HSIN HSIN begins with the founding generation of the Lin family, who established the business in Vancouver in 1995 with a commitment to craftsmanship, integrity, and long-term relationships.",
+                  "The story of HSIN HSIN begins with the founding generation of the Lin family, who established the business in Vancouver, Canada in 1995 with a commitment to craftsmanship, integrity, and long-term relationships.",
                   "欣欣的故事始於林氏家族的創始一代，他們於 1995 年在溫哥華創立了這家企業，秉持工藝精神、誠信經營與長期關係的承諾。"
                 )}
               </p>
@@ -83,7 +92,7 @@ const Founder = () => {
           <div className="flex flex-col md:flex-row gap-12 mb-16">
             <div className="md:w-1/3">
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src={ceoImg} alt="Emily Lin" className="w-full h-auto object-cover" />
+                <img src={ceoImg} alt="Emily Lin, CEO of HH Nexus Capital and HSIN HSIN family enterprise" className="w-full h-auto object-cover" />
               </div>
               <div className="mt-6 text-center md:text-left">
                 <h2 className="font-display text-2xl text-foreground">Emily Lin</h2>
@@ -155,6 +164,16 @@ const Founder = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Internal links */}
+          <div className="mt-12 flex flex-wrap gap-6">
+            <Link to="/community" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+              {t("Explore Community & Culture", "探索文化社區")} <ArrowRight size={14} />
+            </Link>
+            <Link to="/about" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+              {t("About HSIN HSIN", "關於欣欣")} <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>

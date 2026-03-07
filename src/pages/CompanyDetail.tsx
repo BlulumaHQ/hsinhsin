@@ -2,6 +2,7 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import { companies } from "@/data/companies";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 
@@ -18,6 +19,12 @@ const CompanyDetail = () => {
 
   return (
     <Layout>
+      <SEO
+        title={`${company.nameEn} | HSIN HSIN`}
+        description={company.descEn}
+        path={`/companies/${company.id}`}
+      />
+
       <PageHero
         title={t(company.nameEn, company.nameZh)}
         subtitle={t(company.taglineEn, company.taglineZh)}
@@ -32,7 +39,7 @@ const CompanyDetail = () => {
             {/* Sidebar */}
             <div className="md:w-1/3">
               <div className="bg-secondary rounded-lg p-10 flex items-center justify-center mb-6">
-                <img src={company.logo} alt={company.nameEn} className="max-h-28 max-w-[220px] w-auto object-contain" />
+                <img src={company.logo} alt={`${company.nameEn} logo`} className="max-h-28 max-w-[220px] w-auto object-contain" />
               </div>
               <div className="space-y-4">
                 <div>
@@ -50,7 +57,6 @@ const CompanyDetail = () => {
 
             {/* Main content */}
             <div className="md:w-2/3 space-y-8">
-              {/* Overview */}
               <div>
                 <h2 className="font-display text-xl md:text-2xl text-foreground mb-4">{t("Overview", "概述")}</h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -58,7 +64,6 @@ const CompanyDetail = () => {
                 </p>
               </div>
 
-              {/* Detail paragraphs */}
               <div className="space-y-4">
                 {company.detailEn.map((_, i) => (
                   <p key={i} className="text-muted-foreground leading-relaxed">
@@ -67,7 +72,6 @@ const CompanyDetail = () => {
                 ))}
               </div>
 
-              {/* Services */}
               {company.servicesEn.length > 0 && (
                 <div>
                   <h3 className="font-display text-lg text-foreground mb-4">{t("Key Services", "主要服務")}</h3>
@@ -82,7 +86,6 @@ const CompanyDetail = () => {
                 </div>
               )}
 
-              {/* CTA */}
               <div className="bg-secondary rounded-lg p-8 mt-8">
                 <h3 className="font-display text-lg text-foreground mb-2">
                   {t("Interested in working together?", "有興趣合作嗎？")}
