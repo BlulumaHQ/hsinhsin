@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { companies } from "@/data/companies";
-import PageHero from "@/components/PageHero";
 import Layout from "@/components/Layout";
-import skylineImg from "@/assets/vancouver-skyline.jpg";
-import { ArrowRight } from "lucide-react";
+import heroImg from "@/assets/hero-craftsmanship.jpg";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -12,26 +11,26 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-        <img src={skylineImg} alt="Vancouver skyline" className="absolute inset-0 w-full h-full object-cover" />
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <img src={heroImg} alt="Craftsmanship heritage" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 hero-overlay" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-primary-foreground font-bold tracking-tight leading-tight">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-primary-foreground font-bold tracking-tight leading-tight">
             HSIN HSIN
           </h1>
           <p className="text-accent text-sm md:text-base uppercase tracking-[0.3em] mt-3 font-medium">
             {t("Family Enterprise Group", "家族企業集團")}
           </p>
-          <p className="text-primary-foreground/70 mt-6 text-base md:text-lg font-light italic">
+          <p className="text-primary-foreground/70 mt-5 text-sm md:text-base font-light tracking-wider">
             {t(
-              "Craftsmanship, Culture, and Entrepreneurship Across Generations",
-              "跨世代的工藝、文化與創業精神"
+              "Professional · Innovative · Extraordinary — Rooted in Value",
+              "專業・創新・非凡——為價值而生"
             )}
           </p>
           <p className="text-primary-foreground/60 mt-6 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
             {t(
-              "HSIN HSIN is a Vancouver-based family enterprise connecting craftsmanship, creative industries, and entrepreneurial platforms. From traditional craftsmanship to cultural education, lifestyle hospitality, and digital brand development, the group supports a diverse ecosystem of companies rooted in heritage, creativity, and long-term stewardship.",
-              "欣欣是一家位於溫哥華的家族企業，連結工藝、創意產業和創業平台。從傳統工藝到文化教育、生活方式餐旅和數位品牌發展，集團支持一個植根於傳承、創意和長期管理的多元企業生態系統。"
+              "HSIN HSIN is a Vancouver-based family enterprise group spanning craftsmanship, art education, events and public relations, lifestyle retail, and digital brand development. Rooted in heritage and guided by long-term stewardship, the group brings together creativity, quality, and community through a diversified ecosystem of businesses.",
+              "欣欣是一家位於溫哥華的家族企業集團，橫跨工藝、藝術教育、活動與公共關係、生活零售及數位品牌發展。植根於傳承並以長期管理為導向，集團通過多元化的企業生態系統，將創意、品質和社區連結在一起。"
             )}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
@@ -39,9 +38,34 @@ const Index = () => {
               {t("Explore Our Companies", "探索旗下企業")}
             </Link>
             <Link to="/about" className="btn-accent">
-              {t("Learn Our Story", "了解我們的故事")}
+              {t("Our Story", "我們的故事")}
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* About Overview */}
+      <section className="py-16 md:py-24">
+        <div className="section-container max-w-3xl text-center">
+          <p className="text-accent text-xs uppercase tracking-widest font-medium mb-3">
+            {t("About HSIN HSIN", "關於欣欣")}
+          </p>
+          <h2 className="font-display text-2xl md:text-4xl text-foreground mb-6">
+            {t("About HSIN HSIN", "關於欣欣")}
+          </h2>
+          <div className="w-16 h-0.5 bg-accent mx-auto mb-8" />
+          <p className="text-muted-foreground leading-relaxed mb-8">
+            {t(
+              "Founded in Vancouver in 1995, HSIN HSIN is a diversified family enterprise group spanning art craftsmanship, cultural education, event planning, lifestyle retail, and digital brand strategy. Guided by the values of professionalism, innovation, and long-term stewardship, the group continues to evolve across generations while remaining rooted in community, culture, and quality.",
+              "欣欣企業成立於 1995 年加拿大溫哥華，是一個橫跨藝術工藝、文化教育、活動策劃、生活選品與品牌數位整合的家族企業集團。集團以「專業、創新、非凡」為核心精神，結合文化、美學、創意與永續價值，持續推動品牌升級、社區連結與世代傳承。"
+            )}
+          </p>
+          <blockquote className="border-l-2 border-accent pl-6 text-foreground italic font-display text-lg md:text-xl">
+            {t(
+              "Professional · Innovative · Extraordinary — Rooted in Value.",
+              "專業・創新・非凡，為價值而生。永續經營，世代傳承。"
+            )}
+          </blockquote>
         </div>
       </section>
 
@@ -52,21 +76,32 @@ const Index = () => {
             {t("Our Companies", "旗下企業")}
           </h2>
           <div className="w-16 h-0.5 bg-accent mx-auto mb-12" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {companies.map((company) => {
               const inner = (
-                <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
-                  <div className="h-20 flex items-center justify-center mb-5">
-                    <img src={company.logo} alt={company.nameEn} className="max-h-16 max-w-[160px] object-contain" />
+                <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
+                  <div className="h-28 flex items-center justify-center mb-6">
+                    <img src={company.logo} alt={company.nameEn} className="max-h-24 max-w-[220px] w-auto object-contain" />
                   </div>
+                  <p className="text-accent text-xs uppercase tracking-widest font-medium mb-2">
+                    {t(company.taglineEn, company.taglineZh)}
+                  </p>
                   <h3 className="font-display text-lg text-foreground mb-2">
                     {t(company.nameEn, company.nameZh)}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed flex-1">
                     {t(company.descEn, company.descZh)}
                   </p>
-                  <div className="mt-4 flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
-                    {t("Learn More", "了解更多")} <ArrowRight size={14} />
+                  <div className="mt-5 flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
+                    {company.external ? (
+                      <>
+                        {t("Visit Website", "訪問網站")} <ExternalLink size={14} />
+                      </>
+                    ) : (
+                      <>
+                        {t("Learn More", "了解更多")} <ArrowRight size={14} />
+                      </>
+                    )}
                   </div>
                 </div>
               );
@@ -85,22 +120,6 @@ const Index = () => {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-16 md:py-24">
-        <div className="section-container text-center max-w-3xl">
-          <h2 className="font-display text-2xl md:text-4xl text-foreground mb-3">
-            {t("Heritage. Creativity. Stewardship.", "傳承。創意。管理。")}
-          </h2>
-          <div className="w-16 h-0.5 bg-accent mx-auto mb-8" />
-          <p className="text-muted-foreground leading-relaxed">
-            {t(
-              "Through responsible leadership and continuous innovation, HSIN HSIN has evolved into a connected ecosystem supporting creativity, culture, and community across Vancouver and beyond.",
-              "透過負責任的領導和持續創新，欣欣已發展成為一個支持溫哥華及更廣泛地區創意、文化和社區的互聯生態系統。"
-            )}
-          </p>
         </div>
       </section>
     </Layout>
