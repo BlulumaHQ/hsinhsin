@@ -10,9 +10,30 @@ import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 const slides = [
-  { img: heroSlide1, kenburns: "animate-kenburns-1" },
-  { img: heroSlide2, kenburns: "animate-kenburns-2" },
-  { img: heroSlide3, kenburns: "animate-kenburns-3" },
+  {
+    img: heroSlide1,
+    kenburns: "animate-kenburns-1",
+    headline: "Design, Branding, and Modern Visibility",
+    headlineZh: "設計、品牌與現代能見度",
+    sub: "From digital presence to experiential storytelling, HSIN HSIN connects creative strategy with real-world brand expression.",
+    subZh: "從數位形象到體驗式敘事，欣欣將創意策略與真實品牌表達連結在一起。",
+  },
+  {
+    img: heroSlide2,
+    kenburns: "animate-kenburns-2",
+    headline: "Craftsmanship Rooted in Heritage",
+    headlineZh: "植根於傳承的工藝精神",
+    sub: "Built on decades of framing expertise, material knowledge, and aesthetic precision, our foundation begins with the art of making.",
+    subZh: "奠基於數十年的裝裱專業、材料知識與美學精準，我們的根基始於創造的藝術。",
+  },
+  {
+    img: heroSlide3,
+    kenburns: "animate-kenburns-3",
+    headline: "Teaching Creativity Across Generations",
+    headlineZh: "跨世代的創意傳承",
+    sub: "Through artistic mentorship and hands-on cultural learning, HSIN HSIN carries creative knowledge forward for the next generation.",
+    subZh: "透過藝術指導與文化實踐學習，欣欣將創意知識傳遞給下一代。",
+  },
 ];
 
 const Index = () => {
@@ -30,7 +51,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Slider */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {slides.map((slide, i) => (
           <div
             key={i}
@@ -46,26 +67,30 @@ const Index = () => {
           </div>
         ))}
         <div className="absolute inset-0 hero-slide-overlay" />
-        <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-primary-foreground font-bold tracking-tight leading-tight drop-shadow-lg">
+        <div className="relative z-10 px-6 sm:px-12 lg:px-20 max-w-3xl">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-primary-foreground font-bold tracking-tight leading-none drop-shadow-lg">
             HSIN HSIN
           </h1>
-          <p className="text-accent text-sm md:text-base uppercase tracking-[0.3em] mt-3 font-medium drop-shadow">
+          <p className="text-accent text-xs md:text-sm uppercase tracking-[0.35em] mt-3 font-semibold drop-shadow">
             {t("Family Enterprise Group", "家族企業集團")}
           </p>
-          <p className="text-primary-foreground/80 mt-5 text-sm md:text-base font-light tracking-wider drop-shadow">
+
+          {/* Slide-specific headline */}
+          <h2 className="font-display text-xl md:text-2xl lg:text-3xl text-primary-foreground font-semibold mt-8 leading-snug drop-shadow-md transition-all duration-700">
+            {t(slides[current].headline, slides[current].headlineZh)}
+          </h2>
+          <p className="text-primary-foreground/75 mt-3 text-sm md:text-base leading-relaxed max-w-xl drop-shadow transition-all duration-700">
+            {t(slides[current].sub, slides[current].subZh)}
+          </p>
+
+          <p className="text-primary-foreground/60 mt-6 text-xs md:text-sm tracking-wider font-light drop-shadow">
             {t(
               "Professional · Innovative · Extraordinary — Rooted in Value",
               "專業・創新・非凡——為價值而生"
             )}
           </p>
-          <p className="text-primary-foreground/70 mt-6 text-sm md:text-base leading-relaxed max-w-xl mx-auto drop-shadow">
-            {t(
-              "HSIN HSIN is a Vancouver-based family enterprise group spanning craftsmanship, art education, events and public relations, lifestyle retail, and digital brand development. Rooted in heritage and guided by long-term stewardship, the group brings together creativity, quality, and community through a diversified ecosystem of businesses.",
-              "欣欣是一家位於溫哥華的家族企業集團，橫跨工藝、藝術教育、活動與公共關係、生活零售及數位品牌發展。植根於傳承並以長期管理為導向，集團通過多元化的企業生態系統，將創意、品質和社區連結在一起。"
-            )}
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+
+          <div className="flex flex-col sm:flex-row items-start gap-4 mt-8">
             <button onClick={() => { navigate("/companies"); window.scrollTo(0, 0); }} className="btn-primary">
               {t("Explore Our Companies", "探索旗下企業")}
             </button>
@@ -75,7 +100,7 @@ const Index = () => {
           </div>
         </div>
         {/* Slide indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        <div className="absolute bottom-8 left-6 sm:left-12 lg:left-20 z-10 flex gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
