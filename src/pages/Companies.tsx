@@ -5,6 +5,14 @@ import PageHero from "@/components/PageHero";
 import { companies } from "@/data/companies";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
+const ecosystemCategories = [
+  { en: "Craftsmanship", zh: "工藝" },
+  { en: "Culture", zh: "文化" },
+  { en: "Lifestyle", zh: "生活" },
+  { en: "Creative", zh: "創意" },
+  { en: "Digital", zh: "數位" },
+];
+
 const Companies = () => {
   const { t } = useLanguage();
 
@@ -12,59 +20,126 @@ const Companies = () => {
     <Layout>
       <PageHero
         title={t("Our Companies", "旗下企業")}
-        subtitle={t("A diversified ecosystem rooted in heritage, creativity, and community", "植根於傳承、創意和社區的多元化生態系統")}
+        subtitle={t(
+          "A diversified ecosystem rooted in heritage, creativity, and community",
+          "植根於傳承、創意和社區的多元化生態系統"
+        )}
       />
-      <section className="py-16 md:py-24">
-        <div className="section-container">
-          <div className="space-y-16">
-            {companies.map((company) => {
-              const content = (
-                <div className="flex flex-col md:flex-row items-center gap-10 group">
-                  <div className="w-full md:w-1/3 flex justify-center">
-                    <div className="bg-secondary rounded-lg p-10 w-full flex items-center justify-center min-h-[240px]">
-                      <img src={company.logo} alt={company.nameEn} className="max-h-44 max-w-[320px] w-auto object-contain" />
-                    </div>
-                  </div>
-                  <div className="w-full md:w-2/3">
-                    <p className="text-accent text-xs uppercase tracking-widest font-medium mb-1">
-                      {t(company.taglineEn, company.taglineZh)}
-                    </p>
-                    <h3 className="font-display text-xl md:text-2xl text-foreground mb-2">
-                      {t(company.nameEn, company.nameZh)}
-                    </h3>
-                    <p className="text-muted-foreground/60 text-sm mb-3">
-                      {t(company.industryEn, company.industryZh)}
-                      {company.location && ` · ${company.location}`}
-                    </p>
-                    <p className="text-muted-foreground leading-relaxed mb-5">
-                      {t(company.descEn, company.descZh)}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
-                      {company.external ? (
-                        <>
-                          {t("Visit Website", "訪問網站")} <ExternalLink size={14} />
-                        </>
-                      ) : (
-                        <>
-                          {t("Learn More", "了解更多")} <ArrowRight size={14} />
-                        </>
-                      )}
-                    </span>
-                  </div>
-                </div>
-              );
 
-              return company.external ? (
-                <a key={company.id} href={company.external} target="_blank" rel="noopener noreferrer" className="block border-b border-border pb-16 last:border-0">
-                  {content}
-                </a>
-              ) : (
-                <Link key={company.id} to={`/companies/${company.id}`} className="block border-b border-border pb-16 last:border-0">
-                  {content}
-                </Link>
-              );
-            })}
-          </div>
+      {/* Ecosystem Intro */}
+      <section className="py-16 md:py-20">
+        <div className="section-container max-w-3xl text-center">
+          <p className="text-accent text-xs uppercase tracking-widest font-medium mb-3">
+            {t("Brand Architecture", "品牌架構")}
+          </p>
+          <h2 className="font-display text-2xl md:text-4xl text-foreground mb-6">
+            {t("Our Ecosystem", "我們的生態系統")}
+          </h2>
+          <div className="w-16 h-0.5 bg-accent mx-auto mb-8" />
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            {t(
+              "HSIN HSIN is a multi-generational family enterprise connecting craftsmanship, culture, lifestyle, creative industries, and digital innovation.",
+              "欣欣是一家多代家族企業，連結工藝、文化、生活、創意產業與數位創新。"
+            )}
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            {t(
+              "Through a portfolio of specialized companies, the group brings together heritage craftsmanship, cultural education, curated experiences, and modern brand development.",
+              "透過一系列專業公司，集團匯聚傳統工藝、文化教育、策劃體驗與現代品牌發展。"
+            )}
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            {t(
+              "Each company operates independently while contributing to a shared ecosystem rooted in quality, creativity, and long-term value.",
+              "每家公司獨立運營，同時為一個植根於品質、創意和長期價值的共享生態系統做出貢獻。"
+            )}
+          </p>
+        </div>
+      </section>
+
+      {/* Companies by Category */}
+      <section className="pb-16 md:pb-24">
+        <div className="section-container">
+          {ecosystemCategories.map((category) => {
+            const categoryCompanies = companies.filter(
+              (c) => c.categoryEn === category.en
+            );
+            if (categoryCompanies.length === 0) return null;
+
+            return (
+              <div key={category.en} className="mb-16 last:mb-0">
+                <div className="flex items-center gap-4 mb-8">
+                  <h3 className="font-display text-xl md:text-2xl text-foreground">
+                    {t(category.en, category.zh)}
+                  </h3>
+                  <div className="flex-1 h-px bg-border" />
+                </div>
+
+                {categoryCompanies.map((company) => {
+                  const content = (
+                    <div className="flex flex-col md:flex-row items-center gap-8 group">
+                      <div className="w-full md:w-1/3 flex justify-center">
+                        <div className="w-full flex items-center justify-center h-[140px]">
+                          <img
+                            src={company.logo}
+                            alt={company.nameEn}
+                            className="max-h-[120px] w-full object-contain"
+                          />
+                        </div>
+                      </div>
+                      <div className="w-full md:w-2/3">
+                        <p className="text-accent text-[11px] uppercase tracking-[0.2em] font-semibold mb-1">
+                          {t(company.categoryEn, company.categoryZh)}
+                        </p>
+                        <h3 className="font-display text-xl md:text-2xl text-foreground mb-1">
+                          {t(company.nameEn, company.nameZh)}
+                        </h3>
+                        <p className="text-muted-foreground/50 text-xs mb-3 italic">
+                          {t(company.taglineEn, company.taglineZh)}
+                        </p>
+                        <p className="text-muted-foreground leading-relaxed mb-5">
+                          {t(company.descEn, company.descZh)}
+                        </p>
+                        <span className="inline-flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
+                          {company.external ? (
+                            <>
+                              {t("Visit Website", "訪問網站")}{" "}
+                              <ExternalLink size={14} />
+                            </>
+                          ) : (
+                            <>
+                              {t("Learn More", "了解更多")}{" "}
+                              <ArrowRight size={14} />
+                            </>
+                          )}
+                        </span>
+                      </div>
+                    </div>
+                  );
+
+                  return company.external ? (
+                    <a
+                      key={company.id}
+                      href={company.external}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block border-b border-border pb-10 mb-10 last:border-0 last:pb-0 last:mb-0"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <Link
+                      key={company.id}
+                      to={`/companies/${company.id}`}
+                      className="block border-b border-border pb-10 mb-10 last:border-0 last:pb-0 last:mb-0"
+                    >
+                      {content}
+                    </Link>
+                  );
+                })}
+              </div>
+            );
+          })}
         </div>
       </section>
     </Layout>

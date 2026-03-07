@@ -21,9 +21,9 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm">
-      <div className="section-container flex items-center justify-between h-16 md:h-20">
+      <div className="section-container flex items-center justify-between h-20 md:h-24">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logoImg} alt="HSIN HSIN" className="h-11 md:h-14 w-auto" />
+          <img src={logoImg} alt="HSIN HSIN" className="h-[50px] md:h-[70px] w-auto" />
         </Link>
 
         {/* Desktop Nav */}

@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="section-container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <img src={logoImg} alt="HSIN HSIN" className="h-14 w-auto mb-4" />
+            <img src={logoImg} alt="HSIN HSIN" className="h-[70px] w-auto mb-4" />
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
               {t(
                 "Professional · Innovative · Extraordinary — Rooted in Value.",

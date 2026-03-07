@@ -69,39 +69,72 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Companies Section */}
+      {/* Our Ecosystem Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="section-container">
-          <h2 className="font-display text-2xl md:text-4xl text-center text-foreground mb-3">
-            {t("Our Companies", "旗下企業")}
-          </h2>
-          <div className="w-16 h-0.5 bg-accent mx-auto mb-12" />
+          {/* Ecosystem Intro */}
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <p className="text-accent text-xs uppercase tracking-widest font-medium mb-3">
+              {t("Our Portfolio", "企業版圖")}
+            </p>
+            <h2 className="font-display text-2xl md:text-4xl text-foreground mb-6">
+              {t("Our Ecosystem", "我們的生態系統")}
+            </h2>
+            <div className="w-16 h-0.5 bg-accent mx-auto mb-8" />
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              {t(
+                "HSIN HSIN is a multi-generational family enterprise connecting craftsmanship, culture, lifestyle, creative industries, and digital innovation.",
+                "欣欣是一家多代家族企業，連結工藝、文化、生活、創意產業與數位創新。"
+              )}
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              {t(
+                "Through a portfolio of specialized companies, the group brings together heritage craftsmanship, cultural education, curated experiences, and modern brand development.",
+                "透過一系列專業公司，集團匯聚傳統工藝、文化教育、策劃體驗與現代品牌發展。"
+              )}
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              {t(
+                "Each company operates independently while contributing to a shared ecosystem rooted in quality, creativity, and long-term value.",
+                "每家公司獨立運營，同時為一個植根於品質、創意和長期價值的共享生態系統做出貢獻。"
+              )}
+            </p>
+          </div>
+
+          {/* Company Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {companies.map((company) => {
               const inner = (
-                <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
-                  <div className="h-40 flex items-center justify-center mb-6">
-                    <img src={company.logo} alt={company.nameEn} className="max-h-36 max-w-[280px] w-auto object-contain" />
+                <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
+                  {/* Logo Container */}
+                  <div className="h-[140px] flex items-center justify-center px-6 py-4">
+                    <img src={company.logo} alt={company.nameEn} className="max-h-[120px] w-full object-contain" />
                   </div>
-                  <p className="text-accent text-xs uppercase tracking-widest font-medium mb-2">
-                    {t(company.taglineEn, company.taglineZh)}
-                  </p>
-                  <h3 className="font-display text-lg text-foreground mb-2">
-                    {t(company.nameEn, company.nameZh)}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                    {t(company.descEn, company.descZh)}
-                  </p>
-                  <div className="mt-5 flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
-                    {company.external ? (
-                      <>
-                        {t("Visit Website", "訪問網站")} <ExternalLink size={14} />
-                      </>
-                    ) : (
-                      <>
-                        {t("Learn More", "了解更多")} <ArrowRight size={14} />
-                      </>
-                    )}
+                  {/* Content */}
+                  <div className="px-8 pb-8 flex flex-col flex-1">
+                    <p className="text-accent text-[11px] uppercase tracking-[0.2em] font-semibold mb-2">
+                      {t(company.categoryEn, company.categoryZh)}
+                    </p>
+                    <h3 className="font-display text-lg text-foreground mb-1">
+                      {t(company.nameEn, company.nameZh)}
+                    </h3>
+                    <p className="text-muted-foreground/50 text-xs mb-3 italic">
+                      {t(company.taglineEn, company.taglineZh)}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                      {t(company.descEn, company.descZh)}
+                    </p>
+                    <div className="mt-5 flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
+                      {company.external ? (
+                        <>
+                          {t("Visit Website", "訪問網站")} <ExternalLink size={14} />
+                        </>
+                      ) : (
+                        <>
+                          {t("Learn More", "了解更多")} <ArrowRight size={14} />
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
               );

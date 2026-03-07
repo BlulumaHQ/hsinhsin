@@ -12,6 +12,8 @@ export interface Company {
   taglineZh: string;
   descEn: string;
   descZh: string;
+  categoryEn: string;
+  categoryZh: string;
   industryEn: string;
   industryZh: string;
   location: string;
@@ -32,8 +34,10 @@ export const companies: Company[] = [
     nameZh: "欣欣畫框",
     taglineEn: "Taste in Life, Mastery in Craft",
     taglineZh: "品味生活，精湛工藝",
-    descEn: "A premium framing and art presentation company serving artists, collectors, designers, and galleries with custom framing, mouldings, mirrors, and conservation-minded presentation services.",
-    descZh: "一家優質的裱框與藝術展示公司，為藝術家、收藏家、設計師和畫廊提供定制裱框、線條、鏡框及保護性展示服務。",
+    descEn: "A Vancouver-based craftsmanship studio specializing in museum-quality framing and art presentation.",
+    descZh: "一家位於溫哥華的工藝工作室，專注於博物館級裱框與藝術展示。",
+    categoryEn: "Craftsmanship",
+    categoryZh: "工藝",
     industryEn: "Art Craftsmanship / Manufacturing",
     industryZh: "藝術工藝 / 製造",
     location: "Vancouver, Canada",
@@ -73,8 +77,10 @@ export const companies: Company[] = [
     nameZh: "劍橋藝術中心",
     taglineEn: "Preserving Heritage, Inspiring Creativity",
     taglineZh: "傳承文化，啟發創意",
-    descEn: "A cultural education platform focused on metal arts, craftsmanship, creative training, academic planning, and the preservation of artistic heritage.",
-    descZh: "一個專注於金屬藝術、工藝、創意培訓、學術規劃及藝術文化遺產保護的文化教育平台。",
+    descEn: "An educational platform dedicated to metal arts, craftsmanship training, and creative development.",
+    descZh: "一個專注於金屬藝術、工藝培訓及創意發展的教育平台。",
+    categoryEn: "Culture",
+    categoryZh: "文化",
     industryEn: "Art Education",
     industryZh: "藝術教育",
     location: "Vancouver, Canada",
@@ -114,8 +120,10 @@ export const companies: Company[] = [
     nameZh: "欣欣向榮活動策劃公關公司",
     taglineEn: "Integrated Creativity, Amplified Branding",
     taglineZh: "整合創意，擴大品牌影響力",
-    descEn: "An integrated event planning and brand communications company specializing in public relations, corporate events, media coordination, digital marketing, design support, and cultural programming.",
-    descZh: "一家整合活動策劃與品牌傳播公司，專注於公共關係、企業活動、媒體協調、數位行銷、設計支援及文化項目。",
+    descEn: "A cultural event planning and brand communications platform specializing in public relations, corporate events, and cultural programming.",
+    descZh: "一個文化活動策劃與品牌傳播平台，專注於公共關係、企業活動及文化項目。",
+    categoryEn: "Creative",
+    categoryZh: "創意",
     industryEn: "Public Relations & Events",
     industryZh: "公共關係與活動",
     location: "Vancouver, Canada",
@@ -159,8 +167,10 @@ export const companies: Company[] = [
     nameZh: "La Petite Elli 咖啡與茶",
     taglineEn: "Where Nature Meets Everyday Wellness",
     taglineZh: "自然與日常健康的交匯",
-    descEn: "A lifestyle boutique brand centered on specialty coffee, herbal wellness teas, mushrooms, dried ingredients, and carefully curated products that connect health, taste, and everyday ritual.",
-    descZh: "一個以精品咖啡、草本養生茶、菇類、乾燥食材及精心策劃產品為核心的生活品牌，連結健康、品味與日常儀式。",
+    descEn: "A boutique lifestyle brand focused on organic herbal teas, specialty coffee, and curated wellness products.",
+    descZh: "一個精品生活品牌，專注於有機草本茶、精品咖啡及精選健康產品。",
+    categoryEn: "Lifestyle",
+    categoryZh: "生活",
     industryEn: "Lifestyle & Wellness Retail",
     industryZh: "生活方式與健康零售",
     location: "Vancouver, Canada",
@@ -200,8 +210,10 @@ export const companies: Company[] = [
     nameZh: "Bluluma Design",
     taglineEn: "Design with Strategy",
     taglineZh: "策略性設計",
-    descEn: "A creative design studio specializing in brand identity, websites, graphic design, and digital storytelling for modern businesses.",
-    descZh: "一家專注於品牌識別、網站、平面設計和數位故事敘述的創意設計工作室。",
+    descEn: "A digital design studio focused on brand identity, website design, and digital storytelling.",
+    descZh: "一家專注於品牌識別、網站設計和數位故事敘述的數位設計工作室。",
+    categoryEn: "Digital",
+    categoryZh: "數位",
     industryEn: "Brand Strategy & Digital Design",
     industryZh: "品牌策略與數位設計",
     location: "",
