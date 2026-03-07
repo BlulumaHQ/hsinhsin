@@ -1,4 +1,4 @@
-import heroImg from "@/assets/hero-craftsmanship.jpg";
+import heroImg from "@/assets/hero-slide-1.jpg";
 
 interface PageHeroProps {
   title: string;
@@ -10,7 +10,7 @@ const PageHero = ({ title, subtitle }: PageHeroProps) => {
     <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
       <img
         src={heroImg}
-        alt="Craftsmanship heritage"
+        alt="HSIN HSIN"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 page-overlay" />
