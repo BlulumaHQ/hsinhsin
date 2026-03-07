@@ -11,7 +11,7 @@ const Header = () => {
 
   const navItems = [
     { path: "/", labelEn: "Home", labelZh: "首頁" },
-    { path: "/about", labelEn: "About", labelZh: "關於我們" },
+    { path: "/about", labelEn: "About Us", labelZh: "關於我們" },
     { path: "/companies", labelEn: "Our Companies", labelZh: "旗下企業" },
     { path: "/founder", labelEn: "Founder", labelZh: "創辦人" },
     { path: "/community", labelEn: "Community", labelZh: "文化社區" },
@@ -22,8 +22,8 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm">
       <div className="section-container flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logoImg} alt="HSIN HSIN" className="h-10 md:h-12 w-auto" />
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logoImg} alt="HSIN HSIN" className="h-11 md:h-14 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
