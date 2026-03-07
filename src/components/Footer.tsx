@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logoImg from "@/assets/logo-hsinhsin.svg";
+import logoImg from "@/assets/logo-hsinhsin-new.png";
 
 const Footer = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
+
+  const handleNavClick = (path: string) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -23,11 +29,11 @@ const Footer = () => {
               {t("Quick Links", "快速連結")}
             </h4>
             <div className="flex flex-col gap-2">
-              <Link to="/about" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("About Us", "關於我們")}</Link>
-              <Link to="/companies" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Our Companies", "旗下企業")}</Link>
-              <Link to="/founder" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Our Story", "我們的故事")}</Link>
-              <Link to="/community" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Community", "文化社區")}</Link>
-              <Link to="/contact" className="text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Contact", "聯繫")}</Link>
+              <button onClick={() => handleNavClick("/about")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("About Us", "關於我們")}</button>
+              <button onClick={() => handleNavClick("/companies")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Our Companies", "旗下企業")}</button>
+              <button onClick={() => handleNavClick("/founder")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Our Story", "我們的故事")}</button>
+              <button onClick={() => handleNavClick("/community")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Community", "文化社區")}</button>
+              <button onClick={() => handleNavClick("/contact")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Contact", "聯繫")}</button>
             </div>
           </div>
           <div>

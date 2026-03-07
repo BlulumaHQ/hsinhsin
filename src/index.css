@@ -7,19 +7,19 @@
 @layer base {
   :root {
     --background: 40 6% 97%;
-    --foreground: 40 4% 17%;
+    --foreground: 26 6% 21%;
 
     --card: 40 6% 99%;
-    --card-foreground: 40 4% 17%;
+    --card-foreground: 26 6% 21%;
 
     --popover: 40 6% 99%;
-    --popover-foreground: 40 4% 17%;
+    --popover-foreground: 26 6% 21%;
 
-    --primary: 40 4% 17%;
+    --primary: 26 6% 21%;
     --primary-foreground: 38 20% 93%;
 
     --secondary: 30 10% 94%;
-    --secondary-foreground: 40 4% 17%;
+    --secondary-foreground: 26 6% 21%;
 
     --muted: 30 8% 93%;
     --muted-foreground: 24 8% 45%;
@@ -32,15 +32,15 @@
 
     --border: 30 10% 88%;
     --input: 30 10% 88%;
-    --ring: 40 4% 17%;
+    --ring: 26 6% 21%;
 
     --radius: 0.375rem;
 
     --warm: 24 20% 45%;
     --warm-light: 24 15% 65%;
     --warm-dark: 24 25% 35%;
-    --earth: 40 4% 17%;
-    --earth-light: 40 4% 28%;
+    --earth: 26 6% 21%;
+    --earth-light: 26 6% 32%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -71,14 +71,18 @@
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(44, 43, 41, 0.85) 0%,
-      rgba(44, 43, 41, 0.55) 50%,
-      rgba(44, 43, 41, 0.2) 100%
+      rgba(58, 54, 51, 0.85) 0%,
+      rgba(58, 54, 51, 0.55) 50%,
+      rgba(58, 54, 51, 0.2) 100%
     );
   }
 
+  .hero-slide-overlay {
+    background: rgba(58, 54, 51, 0.62);
+  }
+
   .page-overlay {
-    background: hsla(40, 4%, 17%, 0.82);
+    background: hsla(26, 6%, 21%, 0.82);
   }
 
   .accent-underline {
@@ -104,5 +108,27 @@
 
   .btn-accent {
     @apply inline-block px-6 py-3 border border-accent text-accent font-sans font-medium text-sm tracking-wide uppercase transition-all duration-300 hover:bg-accent hover:text-accent-foreground;
+  }
+
+  @keyframes kenburns-1 {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-2%, -1%); }
+  }
+  @keyframes kenburns-2 {
+    0% { transform: scale(1.05) translate(1%, 0); }
+    100% { transform: scale(1.18) translate(-1%, -2%); }
+  }
+  @keyframes kenburns-3 {
+    0% { transform: scale(1) translate(-1%, 1%); }
+    100% { transform: scale(1.12) translate(1%, -1%); }
+  }
+  .animate-kenburns-1 {
+    animation: kenburns-1 12s ease-in-out infinite alternate;
+  }
+  .animate-kenburns-2 {
+    animation: kenburns-2 14s ease-in-out infinite alternate;
+  }
+  .animate-kenburns-3 {
+    animation: kenburns-3 13s ease-in-out infinite alternate;
   }
 }
