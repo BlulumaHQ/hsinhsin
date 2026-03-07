@@ -21,8 +21,8 @@ const Companies = () => {
               const content = (
                 <div className="flex flex-col md:flex-row items-center gap-10 group">
                   <div className="w-full md:w-1/3 flex justify-center">
-                    <div className="bg-secondary rounded-lg p-10 w-full flex items-center justify-center min-h-[200px]">
-                      <img src={company.logo} alt={company.nameEn} className="max-h-32 max-w-[240px] w-auto object-contain" />
+                    <div className="bg-secondary rounded-lg p-10 w-full flex items-center justify-center min-h-[240px]">
+                      <img src={company.logo} alt={company.nameEn} className="max-h-44 max-w-[320px] w-auto object-contain" />
                     </div>
                   </div>
                   <div className="w-full md:w-2/3">
