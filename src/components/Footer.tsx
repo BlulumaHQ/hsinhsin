@@ -13,12 +13,13 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="section-container py-14 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-0">
-          {/* Left zone: Logo + brand line */}
-          <div className="md:col-span-4">
-            <img src={logoImg} alt="HSIN HSIN" className="h-[80px] w-auto mb-4" />
-            <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-[280px]">
+      {/* Upper footer */}
+      <div className="section-container pt-20 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-0">
+          {/* Logo column */}
+          <div className="lg:col-span-4">
+            <img src={logoImg} alt="HSIN HSIN" className="h-[52px] w-auto mb-6 opacity-90" />
+            <p className="text-primary-foreground/40 text-sm leading-relaxed max-w-[300px] font-light">
               {t(
                 "Professional · Innovative · Extraordinary Rooted in Value.",
                 "專業・創新・非凡，為價值而生。"
@@ -26,37 +27,61 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Middle zone: Spacer */}
-          <div className="hidden md:block md:col-span-3" />
+          {/* Spacer */}
+          <div className="hidden lg:block lg:col-span-3" />
 
-          {/* Right zone: Quick Links + Contact */}
-          <div className="md:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-10">
+          {/* Right columns */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-12">
             <div>
-              <h4 className="font-sans text-sm font-semibold uppercase tracking-wider text-accent mb-5">
-                {t("Quick Links", "快速連結")}
+              <h4 className="text-[11px] font-sans font-semibold uppercase tracking-[0.25em] text-primary-foreground/30 mb-6">
+                {t("Navigate", "導航")}
               </h4>
-              <div className="flex flex-col gap-2.5">
-                <button onClick={() => handleNavClick("/about")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("About Us", "關於我們")}</button>
-                <button onClick={() => handleNavClick("/companies")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Our Companies", "旗下企業")}</button>
-                <button onClick={() => handleNavClick("/founder")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Our Story", "我們的故事")}</button>
-                <button onClick={() => handleNavClick("/community")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Community", "文化社區")}</button>
-                <button onClick={() => handleNavClick("/contact")} className="text-left text-primary-foreground/60 hover:text-accent text-sm transition-colors">{t("Contact", "聯繫")}</button>
+              <div className="flex flex-col gap-3">
+                {[
+                  { path: "/about", en: "About", zh: "關於" },
+                  { path: "/companies", en: "Companies", zh: "企業" },
+                  { path: "/founder", en: "Our Story", zh: "故事" },
+                  { path: "/community", en: "Community", zh: "社區" },
+                  { path: "/insights", en: "Insights", zh: "觀點" },
+                  { path: "/contact", en: "Contact", zh: "聯繫" },
+                ].map((item) => (
+                  <button
+                    key={item.path}
+                    onClick={() => handleNavClick(item.path)}
+                    className="text-left text-primary-foreground/45 hover:text-primary-foreground/80 text-sm transition-colors duration-300"
+                  >
+                    {t(item.en, item.zh)}
+                  </button>
+                ))}
               </div>
             </div>
             <div>
-              <h4 className="font-sans text-sm font-semibold uppercase tracking-wider text-accent mb-5">
+              <h4 className="text-[11px] font-sans font-semibold uppercase tracking-[0.25em] text-primary-foreground/30 mb-6">
                 {t("Contact", "聯繫")}
               </h4>
-              <p className="text-primary-foreground/60 text-sm">Vancouver, BC, Canada</p>
-              <p className="text-primary-foreground/60 text-sm mt-1.5">info@hsinhsin.ca</p>
+              <div className="space-y-3 text-primary-foreground/45 text-sm">
+                <p>Vancouver, BC</p>
+                <p>Canada</p>
+                <a href="mailto:info@hsinhsin.ca" className="block hover:text-primary-foreground/80 transition-colors">
+                  info@hsinhsin.ca
+                </a>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-primary-foreground/10 mt-12 pt-6 text-center">
-          <p className="text-primary-foreground/40 text-xs">
-            © {new Date().getFullYear()} HSIN HSIN Family Enterprise Group. {t("All rights reserved.", "版權所有。")} | Web Design by{" "}
-            <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">Bluluma</a>
+      {/* Bottom bar */}
+      <div className="border-t border-primary-foreground/5">
+        <div className="section-container py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-primary-foreground/25 text-[11px] tracking-wider">
+            © {new Date().getFullYear()} HSIN HSIN Family Enterprise Group. {t("All rights reserved.", "版權所有。")}
+          </p>
+          <p className="text-primary-foreground/25 text-[11px] tracking-wider">
+            Web Design by{" "}
+            <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="text-accent/70 hover:text-accent transition-colors">
+              Bluluma
+            </a>
           </p>
         </div>
       </div>

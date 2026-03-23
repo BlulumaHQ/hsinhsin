@@ -9,8 +9,8 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const ecosystemCategories = [
   { en: "Craftsmanship", zh: "工藝" },
   { en: "Culture", zh: "文化" },
-  { en: "Lifestyle", zh: "生活" },
   { en: "Creative", zh: "創意" },
+  { en: "Lifestyle", zh: "生活" },
   { en: "Digital", zh: "數位" },
 ];
 
@@ -33,39 +33,41 @@ const Companies = () => {
         )}
       />
 
-      {/* Ecosystem Intro */}
-      <section className="py-16 md:py-20">
-        <div className="section-container max-w-3xl text-center">
-          <p className="text-accent text-xs uppercase tracking-widest font-medium mb-3">
-            {t("Brand Architecture", "品牌架構")}
-          </p>
-          <h2 className="font-display text-2xl md:text-4xl text-foreground mb-6">
-            {t("Our Ecosystem", "我們的生態系統")}
-          </h2>
-          <div className="w-16 h-0.5 bg-accent mx-auto mb-8" />
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            {t(
-              "HSIN HSIN is a multi-generational family enterprise connecting craftsmanship, culture, lifestyle, creative industries, and digital innovation.",
-              "欣欣是一家多代家族企業，連結工藝、文化、生活、創意產業與數位創新。"
-            )}
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            {t(
-              "Through a portfolio of specialized companies, the group brings together heritage craftsmanship, cultural education, curated experiences, and modern brand development.",
-              "透過一系列專業公司，集團匯聚傳統工藝、文化教育、策劃體驗與現代品牌發展。"
-            )}
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            {t(
-              "Each company operates independently while contributing to a shared ecosystem rooted in quality, creativity, and long-term value.",
-              "每家公司獨立運營，同時為一個植根於品質、創意和長期價值的共享生態系統做出貢獻。"
-            )}
-          </p>
+      {/* Intro */}
+      <section className="py-24 md:py-32">
+        <div className="section-container">
+          <div className="max-w-3xl">
+            <p className="label-accent mb-4">{t("Brand Architecture", "品牌架構")}</p>
+            <h2 className="font-display text-3xl md:text-5xl text-foreground leading-[1.1] mb-8">
+              {t("Our Ecosystem", "我們的生態系統")}
+            </h2>
+            <div className="divider-accent mb-8" />
+            <div className="space-y-4 text-muted-foreground leading-[1.8] text-[15px]">
+              <p>
+                {t(
+                  "HSIN HSIN is a multi-generational family enterprise connecting craftsmanship, culture, lifestyle, creative industries, and digital innovation.",
+                  "欣欣是一家多代家族企業，連結工藝、文化、生活、創意產業與數位創新。"
+                )}
+              </p>
+              <p>
+                {t(
+                  "Through a portfolio of specialized companies, the group brings together heritage craftsmanship, cultural education, curated experiences, and modern brand development.",
+                  "透過一系列專業公司，集團匯聚傳統工藝、文化教育、策劃體驗與現代品牌發展。"
+                )}
+              </p>
+              <p>
+                {t(
+                  "Each company operates independently while contributing to a shared ecosystem rooted in quality, creativity, and long-term value.",
+                  "每家公司獨立運營，同時為一個植根於品質、創意和長期價值的共享生態系統做出貢獻。"
+                )}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Companies by Category */}
-      <section className="pb-16 md:pb-24">
+      <section className="pb-24 md:pb-36">
         <div className="section-container">
           {ecosystemCategories.map((category) => {
             const categoryCompanies = companies.filter(
@@ -74,9 +76,9 @@ const Companies = () => {
             if (categoryCompanies.length === 0) return null;
 
             return (
-              <div key={category.en} className="mb-16 last:mb-0">
-                <div className="flex items-center gap-4 mb-8">
-                  <h3 className="font-display text-xl md:text-2xl text-foreground">
+              <div key={category.en} className="mb-24 last:mb-0">
+                <div className="flex items-center gap-6 mb-12">
+                  <h3 className="font-display text-2xl md:text-3xl text-foreground whitespace-nowrap">
                     {t(category.en, category.zh)}
                   </h3>
                   <div className="flex-1 h-px bg-border" />
@@ -84,58 +86,34 @@ const Companies = () => {
 
                 {categoryCompanies.map((company) => {
                   const content = (
-                    <div className="flex flex-col md:flex-row items-center gap-8 group">
-                      <div className="w-full md:w-2/5">
-                        <div
-                          style={{
-                            width: "100%",
-                            height: "260px",
-                            paddingTop: "16px",
-                            paddingBottom: "16px",
-                            paddingLeft: "0px",
-                            paddingRight: "0px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
-                        >
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center group">
+                      <div className="lg:col-span-4">
+                        <div className="bg-secondary w-full h-[220px] flex items-center justify-center overflow-hidden">
                           <img
                             src={company.logo}
                             alt={`${company.nameEn} logo`}
-                            style={{
-                              display: "block",
-                              width: "94%",
-                              height: "100%",
-                              objectFit: "contain",
-                              objectPosition: "center center",
-                            }}
+                            className="w-[85%] h-[75%] object-contain"
                           />
                         </div>
                       </div>
-                      <div className="w-full md:w-3/5">
-                        <p className="text-accent text-[11px] uppercase tracking-[0.2em] font-semibold mb-1">
+                      <div className="lg:col-span-8">
+                        <p className="label-accent mb-2">
                           {t(company.categoryEn, company.categoryZh)}
                         </p>
-                        <h3 className="font-display text-xl md:text-2xl text-foreground mb-1">
+                        <h3 className="font-display text-2xl md:text-3xl text-foreground mb-2 leading-snug">
                           {t(company.nameEn, company.nameZh)}
                         </h3>
-                        <p className="text-muted-foreground/50 text-xs mb-3 italic">
+                        <p className="text-muted-foreground/40 text-xs mb-4 italic font-display text-lg">
                           {t(company.taglineEn, company.taglineZh)}
                         </p>
-                        <p className="text-muted-foreground leading-relaxed mb-5">
+                        <p className="text-muted-foreground leading-[1.8] text-[15px] mb-6 max-w-xl">
                           {t(company.descEn, company.descZh)}
                         </p>
-                        <span className="inline-flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
+                        <span className="inline-flex items-center gap-1.5 text-accent text-[12px] font-medium tracking-[0.1em] uppercase group-hover:gap-3 transition-all">
                           {company.external ? (
-                            <>
-                              {t("Visit Website", "訪問網站")}{" "}
-                              <ExternalLink size={14} />
-                            </>
+                            <>{t("Visit Website", "訪問網站")} <ExternalLink size={13} /></>
                           ) : (
-                            <>
-                              {t("Learn More", "了解更多")}{" "}
-                              <ArrowRight size={14} />
-                            </>
+                            <>{t("Learn More", "了解更多")} <ArrowRight size={13} /></>
                           )}
                         </span>
                       </div>
@@ -148,7 +126,7 @@ const Companies = () => {
                       href={company.external}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block border-b border-border pb-10 mb-10 last:border-0 last:pb-0 last:mb-0"
+                      className="block border-b border-border/50 pb-12 mb-12 last:border-0 last:pb-0 last:mb-0"
                     >
                       {content}
                     </a>
@@ -156,7 +134,7 @@ const Companies = () => {
                     <Link
                       key={company.id}
                       to={`/companies/${company.id}`}
-                      className="block border-b border-border pb-10 mb-10 last:border-0 last:pb-0 last:mb-0"
+                      className="block border-b border-border/50 pb-12 mb-12 last:border-0 last:pb-0 last:mb-0"
                     >
                       {content}
                     </Link>
@@ -168,10 +146,10 @@ const Companies = () => {
         </div>
       </section>
 
-      {/* Internal link to Insights */}
-      <section className="pb-16">
-        <div className="section-container max-w-3xl text-center">
-          <Link to="/insights" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+      {/* CTA */}
+      <section className="bg-secondary py-20">
+        <div className="section-container text-center">
+          <Link to="/insights" className="inline-flex items-center gap-2 text-accent text-[13px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all">
             {t("Read insights on craftsmanship and enterprise", "閱讀工藝與企業觀點")} <ArrowRight size={14} />
           </Link>
         </div>
