@@ -39,8 +39,7 @@ const Contact = () => {
     }
   };
 
-  const inputClass = "w-full border border-border rounded px-4 py-2.5 text-sm bg-background text-foreground focus:outline-none focus:ring-1 focus:ring-accent";
-  const labelClass = "text-xs uppercase tracking-widest text-accent font-medium block mb-1.5";
+  const inputClass = "w-full border border-border bg-transparent rounded-sm px-4 py-3 text-sm text-foreground focus:outline-none focus:border-accent/50 transition-colors";
 
   return (
     <Layout>
@@ -50,49 +49,49 @@ const Contact = () => {
         path="/contact"
       />
 
-      <PageHero title={t("Contact HSIN HSIN", "聯繫欣欣")} />
-      <section className="py-16 md:py-24">
-        <div className="section-container max-w-4xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <PageHero title={t("Contact", "聯繫")} />
+
+      <section className="py-24 md:py-36">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
             {/* Info */}
-            <div>
-              <h2 className="font-display text-2xl text-foreground mb-6">
+            <div className="lg:col-span-5">
+              <p className="label-accent mb-4">{t("Get in Touch", "與我們聯繫")}</p>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] mb-8">
                 HSIN HSIN Family Enterprise
               </h2>
-              <div className="space-y-5 mb-8">
-                <div className="flex items-start gap-3 text-muted-foreground">
-                  <MapPin size={18} className="text-accent mt-0.5" />
+              <div className="divider-accent mb-8" />
+              <div className="space-y-5 mb-10">
+                <div className="flex items-start gap-4 text-muted-foreground text-sm">
+                  <MapPin size={16} className="text-accent/60 mt-0.5 flex-shrink-0" />
                   <span>Vancouver, BC, Canada</span>
                 </div>
-                <div className="flex items-start gap-3 text-muted-foreground">
-                  <Mail size={18} className="text-accent mt-0.5" />
+                <div className="flex items-start gap-4 text-muted-foreground text-sm">
+                  <Mail size={16} className="text-accent/60 mt-0.5 flex-shrink-0" />
                   <a href="mailto:info@hsinhsin.ca" className="hover:text-accent transition-colors">info@hsinhsin.ca</a>
                 </div>
               </div>
-              <div className="space-y-3 text-sm text-muted-foreground mb-8">
+              <div className="space-y-2 text-muted-foreground/60 text-sm mb-10">
                 <p>{t("General inquiries", "一般諮詢")}</p>
                 <p>{t("Partnership inquiries", "合作諮詢")}</p>
                 <p>{t("Brand collaboration inquiries", "品牌合作諮詢")}</p>
               </div>
-              <div className="flex flex-col gap-2">
-                <Link to="/about" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
-                  {t("About HSIN HSIN", "關於欣欣")} <ArrowRight size={14} />
+              <div className="flex flex-col gap-3">
+                <Link to="/about" className="inline-flex items-center gap-2 text-accent text-[12px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all">
+                  {t("About HSIN HSIN", "關於欣欣")} <ArrowRight size={13} />
                 </Link>
-                <Link to="/companies" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
-                  {t("Our Companies", "旗下企業")} <ArrowRight size={14} />
+                <Link to="/companies" className="inline-flex items-center gap-2 text-accent text-[12px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all">
+                  {t("Our Companies", "旗下企業")} <ArrowRight size={13} />
                 </Link>
               </div>
             </div>
 
             {/* Form */}
-            <div>
+            <div className="lg:col-span-7">
               {status === "success" ? (
-                <div className="bg-secondary rounded-lg p-8 text-center">
-                  <h3 className="font-display text-xl text-foreground mb-2">
-                    {t(
-                      "Thank you for your message.",
-                      "感謝您的來信。"
-                    )}
+                <div className="bg-secondary p-12 text-center">
+                  <h3 className="font-display text-2xl text-foreground mb-3">
+                    {t("Thank you for your message.", "感謝您的來信。")}
                   </h3>
                   <p className="text-muted-foreground text-sm">
                     {t(
@@ -103,32 +102,35 @@ const Contact = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  {/* Honeypot */}
                   <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
-                  <div>
-                    <label htmlFor="contact-name" className={labelClass}>{t("Name", "姓名")} *</label>
-                    <input id="contact-name" name="name" type="text" required maxLength={100} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium block mb-2">{t("Name", "姓名")} *</label>
+                      <input name="name" type="text" required maxLength={100} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} />
+                    </div>
+                    <div>
+                      <label className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium block mb-2">{t("Email", "電子郵件")} *</label>
+                      <input name="email" type="email" required maxLength={255} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass} />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium block mb-2">{t("Phone", "電話")}</label>
+                      <input name="phone" type="tel" maxLength={30} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass} />
+                    </div>
+                    <div>
+                      <label className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium block mb-2">{t("Company", "公司")}</label>
+                      <input name="company" type="text" maxLength={150} value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className={inputClass} />
+                    </div>
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className={labelClass}>{t("Email", "電子郵件")} *</label>
-                    <input id="contact-email" name="email" type="email" required maxLength={255} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass} />
+                    <label className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium block mb-2">{t("Subject", "主旨")}</label>
+                    <input name="subject" type="text" maxLength={200} value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className={inputClass} />
                   </div>
                   <div>
-                    <label htmlFor="contact-phone" className={labelClass}>{t("Phone", "電話")}</label>
-                    <input id="contact-phone" name="phone" type="tel" maxLength={30} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass} />
-                  </div>
-                  <div>
-                    <label htmlFor="contact-company" className={labelClass}>{t("Company / Organization", "公司／組織")}</label>
-                    <input id="contact-company" name="company" type="text" maxLength={150} value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className={inputClass} />
-                  </div>
-                  <div>
-                    <label htmlFor="contact-subject" className={labelClass}>{t("Subject", "主旨")}</label>
-                    <input id="contact-subject" name="subject" type="text" maxLength={200} value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className={inputClass} />
-                  </div>
-                  <div>
-                    <label htmlFor="contact-message" className={labelClass}>{t("Message", "訊息")} *</label>
-                    <textarea id="contact-message" name="message" required rows={5} maxLength={2000} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${inputClass} resize-none`} />
+                    <label className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium block mb-2">{t("Message", "訊息")} *</label>
+                    <textarea name="message" required rows={6} maxLength={2000} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${inputClass} resize-none`} />
                   </div>
 
                   {status === "error" && (
@@ -137,9 +139,9 @@ const Contact = () => {
                     </p>
                   )}
 
-                  <button type="submit" disabled={status === "sending"} className="btn-primary w-full text-center inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                  <button type="submit" disabled={status === "sending"} className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed">
                     {status === "sending" ? (
-                      <><Loader2 size={16} className="animate-spin" /> {t("Sending...", "發送中...")}</>
+                      <span className="flex items-center gap-2"><Loader2 size={14} className="animate-spin" /> {t("Sending...", "發送中...")}</span>
                     ) : (
                       t("Send Message", "發送訊息")
                     )}

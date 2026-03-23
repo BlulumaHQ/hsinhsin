@@ -47,37 +47,43 @@ const Community = () => {
         path="/community"
       />
 
-      <PageHero
-        title={t("Community, Culture & Responsibility", "社區、文化與責任")}
-      />
-      <section className="py-16 md:py-24">
-        <div className="section-container max-w-4xl">
-          <div className="text-center mb-16">
-            <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+      <PageHero title={t("Community, Culture & Responsibility", "社區、文化與責任")} />
+
+      <section className="py-24 md:py-36">
+        <div className="section-container">
+          <div className="max-w-3xl mb-20">
+            <p className="label-accent mb-4">{t("Our Values", "我們的價值")}</p>
+            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] mb-8">
+              {t("Making a Meaningful Difference", "創造有意義的改變")}
+            </h2>
+            <div className="divider-accent mb-8" />
+            <p className="text-muted-foreground leading-[1.8] text-[15px]">
               {t(
                 "HSIN HSIN believes that business value is not measured only by commercial success, but also by its contribution to health, culture, community, and responsible living. Across its divisions, the group supports cultural continuity, creative education, local partnerships, and value-driven choices that create a more thoughtful everyday life.",
                 "欣欣企業相信，企業價值不僅來自商業成就，更來自對健康、文化、社區與責任生活方式的實際承諾。透過旗下各事業體，集團持續支持文化傳承、藝術教育、在地合作與更具價值導向的生活選擇。"
               )}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
             {pillars.map((pillar, i) => (
-              <div key={i} className="bg-secondary rounded-lg p-8">
-                <pillar.icon size={28} className="text-accent mb-4" />
-                <h3 className="font-display text-lg text-foreground mb-3">
+              <div key={i} className="bg-background p-10 md:p-14">
+                <pillar.icon size={24} className="text-accent/60 mb-6" strokeWidth={1.5} />
+                <h3 className="font-display text-xl md:text-2xl text-foreground mb-4">
                   {t(pillar.titleEn, pillar.titleZh)}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-[1.8]">
                   {t(pillar.descEn, pillar.descZh)}
                 </p>
               </div>
             ))}
           </div>
-          <div className="text-center mt-12 flex flex-wrap justify-center gap-6">
-            <Link to="/founder" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+
+          <div className="mt-16 flex flex-wrap gap-8">
+            <Link to="/founder" className="inline-flex items-center gap-2 text-accent text-[13px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all">
               {t("Meet the Lin Family", "認識林氏家族")} <ArrowRight size={14} />
             </Link>
-            <Link to="/about" className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all">
+            <Link to="/about" className="inline-flex items-center gap-2 text-accent text-[13px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all">
               {t("About HSIN HSIN", "關於欣欣")} <ArrowRight size={14} />
             </Link>
           </div>
