@@ -287,37 +287,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════ VISUAL STORY STRIPS ═══════════ */}
-      <section className="py-24 md:py-36">
-        <div className="section-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="relative aspect-[3/2] overflow-hidden group">
-              <img src={sectionCulture} alt="Cultural gallery space" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/30 transition-colors duration-500" />
-              <div className="absolute bottom-0 left-0 p-8">
-                <p className="text-accent/70 text-[10px] uppercase tracking-[0.3em] mb-2">
-                  {t("Community & Culture", "社區與文化")}
-                </p>
-                <h3 className="font-display text-2xl md:text-3xl text-primary-foreground leading-tight">
-                  {t("Where Creativity Meets Community", "當創意遇見社區")}
-                </h3>
-              </div>
-            </div>
-            <div className="relative aspect-[3/2] overflow-hidden group">
-              <img src={sectionCreative} alt="Abstract fluid art" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/30 transition-colors duration-500" />
-              <div className="absolute bottom-0 left-0 p-8">
-                <p className="text-accent/70 text-[10px] uppercase tracking-[0.3em] mb-2">
-                  {t("Art Education", "藝術教育")}
-                </p>
-                <h3 className="font-display text-2xl md:text-3xl text-primary-foreground leading-tight">
-                  {t("Creative Legacy Through Art", "透過藝術延續創意傳承")}
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════ CTA STRIP ═══════════ */}
       <section className="bg-secondary py-20 md:py-28">
