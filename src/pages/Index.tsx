@@ -361,23 +361,160 @@ const Index = () => {
       </section>
 
 
+      {/* ═══════════ STRATEGIC POSITIONING ═══════════ */}
+      <section className="py-24 md:py-36 bg-secondary">
+        <div className="section-container">
+          <div className="max-w-3xl mb-16">
+            <p className="label-accent mb-4">{t("Strategic Positioning", "策略定位")}</p>
+            <h2 className="font-display text-3xl md:text-5xl text-foreground leading-[1.1] mb-8">
+              {t(
+                "HSIN HSIN is not a traditional company — we are a multi-layered platform.",
+                "欣欣不是一家傳統公司——我們是一個多層次的整合平台。"
+              )}
+            </h2>
+            <div className="divider-accent" />
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-border mb-16">
+            {[
+              { en: "Craftsmanship", zh: "工藝" },
+              { en: "Culture", zh: "文化" },
+              { en: "Capital", zh: "資本" },
+              { en: "Brand Systems", zh: "品牌系統" },
+              { en: "Lifestyle Economy", zh: "生活方式經濟" },
+            ].map((p, i) => (
+              <div key={i} className="bg-secondary p-8 text-center">
+                <p className="text-accent font-display text-2xl mb-3">0{i + 1}</p>
+                <p className="font-display text-base md:text-lg text-foreground leading-snug">{t(p.en, p.zh)}</p>
+              </div>
+            ))}
+          </div>
+          <div className="max-w-3xl">
+            <p className="font-display text-3xl md:text-4xl text-foreground leading-tight mb-3">
+              {t("We don't build projects.", "我們不做單一項目。")}
+            </p>
+            <p className="font-display text-3xl md:text-4xl text-accent italic leading-tight">
+              {t("We build platforms that scale.", "我們打造可持續放大的平台。")}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ CEO TEASER ═══════════ */}
+      <section className="bg-primary text-primary-foreground py-24 md:py-36">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-5">
+              <p className="label-accent text-accent/70 mb-4">{t("CEO Profile", "執行長")}</p>
+              <h2 className="font-display text-4xl md:text-5xl text-primary-foreground leading-[1.05] mb-4">
+                Emily Lin
+              </h2>
+              <p className="font-display text-2xl text-accent/80 italic mb-6">林欣怡</p>
+              <p className="text-primary-foreground/60 text-sm uppercase tracking-[0.2em] font-medium mb-8">
+                {t(
+                  "Building Platforms that Connect Culture, Business and Legacy",
+                  "連結文化、商業與傳承的平台建構者"
+                )}
+              </p>
+              <div className="w-12 h-[1.5px] bg-accent/50 mb-8" />
+              <ul className="space-y-2 text-primary-foreground/50 text-sm">
+                <li>● {t("CEO · HSIN HSIN HOLDINGS", "執行長 · 欣欣控股")}</li>
+                <li>● {t("President · HH Nexus Capital", "總裁 · 衡寰國際資本")}</li>
+              </ul>
+            </div>
+            <div className="lg:col-span-7 space-y-5 text-primary-foreground/55 leading-[1.9] text-[15px]">
+              <p>
+                {t(
+                  "A cross-disciplinary value architect with a background spanning luxury brands — Maison Birks, Van Cleef & Arpels, and Tiffany & Co. — high-end client relationship management, and the long-term cultivation of brand trust.",
+                  "跨界時代的價值建築者，背景橫跨國際精品品牌——Maison Birks、梵克雅寶與 Tiffany & Co.——高端客戶關係管理與品牌長期信任的建立。"
+                )}
+              </p>
+              <blockquote className="border-l-2 border-accent/50 pl-6 font-display italic text-xl md:text-2xl text-primary-foreground/90 leading-snug">
+                {t(
+                  "“Success only matters when it is transformed into lasting value.”",
+                  "「成功，只有轉化為長期價值，才有意義。」"
+                )}
+              </blockquote>
+              <div className="pt-4">
+                <Link
+                  to="/founder"
+                  className="inline-flex items-center gap-2 text-accent text-[13px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all"
+                >
+                  {t("Read full biography", "閱讀完整簡介")} <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ IMPACT & VISION ═══════════ */}
+      <section className="py-24 md:py-36">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-5">
+              <p className="label-accent mb-4">{t("Impact & Vision", "影響力與願景")}</p>
+              <h2 className="font-display text-3xl md:text-5xl text-foreground leading-[1.1] mb-8">
+                {t("A platform validated by time", "一個能被時間驗證的價值系統")}
+              </h2>
+              <div className="divider-accent mb-8" />
+              <p className="text-muted-foreground leading-[1.9] text-[15px]">
+                {t(
+                  "We aim to build not just a company, but a value system that endures — measured not by quarters, but by generations.",
+                  "我們希望建立的不只是企業，而是一個能被時間驗證的價值系統——不以季度衡量，而以世代為單位。"
+                )}
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <ul className="space-y-px bg-border">
+                {[
+                  { en: "Connects business and culture", zh: "連結商業與文化" },
+                  { en: "Elevates lifestyle standards", zh: "提升生活方式標準" },
+                  { en: "Creates long-term brand equity", zh: "創造長期品牌價值" },
+                  { en: "Generates sustainable social impact", zh: "產生永續的社會影響力" },
+                ].map((v, i) => (
+                  <li key={i} className="bg-background flex items-start gap-6 py-6 px-2">
+                    <span className="text-accent font-display text-xl w-10 flex-shrink-0">0{i + 1}</span>
+                    <span className="font-display text-xl md:text-2xl text-foreground leading-snug">
+                      {t(v.en, v.zh)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ BRAND STATEMENT ═══════════ */}
+      <section className="bg-primary text-primary-foreground py-28 md:py-40">
+        <div className="section-container text-center max-w-4xl mx-auto">
+          <p className="label-accent text-accent/70 mb-8">{t("Brand Statement", "品牌宣言")}</p>
+          <p className="font-display text-3xl md:text-5xl lg:text-6xl text-primary-foreground leading-[1.15] mb-6">
+            {t(
+              "A platform where craftsmanship meets culture, and business becomes lasting value.",
+              "在工藝與文化之間，讓商業成為可以被時間留下的價值。"
+            )}
+          </p>
+        </div>
+      </section>
+
       {/* ═══════════ CTA STRIP ═══════════ */}
       <section className="bg-secondary py-20 md:py-28">
         <div className="section-container text-center">
           <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
-            {t("Explore Our Latest Insights", "探索我們的最新觀點")}
+            {t("Partner With Us", "合作發展")}
           </h2>
           <p className="text-muted-foreground text-sm max-w-md mx-auto mb-8">
             {t(
-              "Perspectives on craftsmanship, culture, enterprise, and modern brand building.",
-              "關於工藝、文化、企業與現代品牌建設的觀點。"
+              "Explore collaboration, investment, and strategic partnership opportunities across our platform.",
+              "探索跨平台的合作、投資與策略夥伴關係機會。"
             )}
           </p>
           <Link
-            to="/insights"
+            to="/contact"
             className="inline-flex items-center gap-2 text-accent text-[13px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all"
           >
-            {t("Read Insights", "閱讀觀點")} <ArrowRight size={14} />
+            {t("Get in touch", "聯絡我們")} <ArrowRight size={14} />
           </Link>
         </div>
       </section>
