@@ -18,20 +18,20 @@ import sectionCreative from "@/assets/section-creative.webp";
 const slides = [
   {
     img: heroSlide1,
-    alt: "Premium trade show booth with strong visual branding and design elements",
+    alt: "HSIN HSIN — a multi-sector platform integrating craftsmanship, culture, and lifestyle",
     kenburns: "animate-kenburns-1",
-    category: "Creative Enterprise",
-    categoryZh: "創意企業",
-    headline: "Design, Culture, and Brand in Motion",
-    headlineZh: "設計、文化與品牌動態",
-    sub: "From visual identity to experiential storytelling, HSIN HSIN connects creativity with business through thoughtful design, communication, and presentation.",
-    subZh: "從視覺識別到體驗式敘事，欣欣透過精心設計、傳播與呈現，將創意與商業連結在一起。",
-    btn1: "Explore Our Companies",
-    btn1Zh: "探索旗下企業",
-    btn1Link: "/companies",
-    btn2: "Our Story",
-    btn2Zh: "我們的故事",
-    btn2Link: "/about",
+    category: "HSIN HSIN HOLDINGS LTD.",
+    categoryZh: "欣欣控股有限公司",
+    headline: "Building Platforms That Create Lasting Value",
+    headlineZh: "打造能創造長期價值的商業平台",
+    sub: "A multi-sector platform integrating craftsmanship, culture, brand strategy, and lifestyle businesses.",
+    subZh: "一個融合工藝、文化、品牌策略與生活方式的多元整合平台。",
+    btn1: "Partner With Us",
+    btn1Zh: "合作發展",
+    btn1Link: "/contact",
+    btn2: "Our Ecosystem",
+    btn2Zh: "我們的生態系統",
+    btn2Link: "/companies",
   },
   {
     img: heroSlide2,
@@ -168,6 +168,79 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════ BRAND POSITIONING ═══════════ */}
+      <section className="py-24 md:py-36">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+            <div className="lg:col-span-5">
+              <p className="label-accent mb-4">{t("Brand Positioning", "品牌定位")}</p>
+              <h2 className="font-display text-3xl md:text-5xl text-foreground leading-[1.1] mb-6">
+                {t("Professional · Innovative · Exceptional", "專業・創新・非凡")}
+              </h2>
+              <p className="font-display text-xl md:text-2xl text-accent italic mb-8">
+                {t("Born for Value", "為價值而生")}
+              </p>
+              <div className="divider-accent mb-8" />
+            </div>
+            <div className="lg:col-span-7 space-y-6 text-muted-foreground leading-[1.9] text-[15px]">
+              <p>
+                {t(
+                  "Founded in 1995, HSIN HSIN HOLDINGS LTD. has evolved into a multi-sector platform integrating craftsmanship, culture, brand strategy, and lifestyle businesses.",
+                  "自 1995 年創立以來，欣欣控股已發展為一個融合工藝、文化、品牌策略與生活方式的多元整合平台。"
+                )}
+              </p>
+              <div className="border-l-2 border-accent/40 pl-6 space-y-2 text-foreground/80">
+                <p className="font-display text-lg md:text-xl leading-snug">
+                  {t("We are not a single-industry company.", "我們不是單一產業公司。")}
+                </p>
+                <p className="font-display text-lg md:text-xl leading-snug">
+                  {t(
+                    "What we are building is a sustainable value system and platform architecture.",
+                    "我們在建立的是：一個可持續運作的「價值系統」與「平台架構」。"
+                  )}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ CORE PHILOSOPHY ═══════════ */}
+      <section className="bg-secondary py-24 md:py-36">
+        <div className="section-container">
+          <div className="max-w-3xl mb-16">
+            <p className="label-accent mb-4">{t("Core Philosophy", "核心理念")}</p>
+            <h2 className="font-display text-3xl md:text-5xl text-foreground leading-[1.1] mb-8">
+              {t(
+                "Business is not only about scale — but about long-term value creation.",
+                "企業的本質，不只是成長，而是能否創造長期價值與社會影響力。"
+              )}
+            </h2>
+            <div className="divider-accent" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+            {[
+              { en: "Professionalism builds trust", zh: "專業建立信任" },
+              { en: "Brand amplifies value", zh: "品牌放大價值" },
+              { en: "Structure determines scale", zh: "結構決定規模" },
+            ].map((item, i) => (
+              <div key={i} className="bg-secondary p-10">
+                <p className="text-accent font-display text-3xl mb-4">0{i + 1}</p>
+                <p className="font-display text-xl text-foreground leading-snug">{t(item.en, item.zh)}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+            <p className="font-display text-2xl md:text-3xl text-foreground italic">
+              {t("Structure creates scale.", "結構決定規模。")}
+            </p>
+            <p className="font-display text-2xl md:text-3xl text-foreground italic">
+              {t("Trust creates longevity.", "信任成就永續。")}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ ABOUT TEASER — SPLIT LAYOUT ═══════════ */}
       <section className="py-24 md:py-36">
         <div className="section-container">
@@ -175,19 +248,19 @@ const Index = () => {
             <div>
               <p className="label-accent mb-4">{t("About HSIN HSIN", "關於欣欣")}</p>
               <h2 className="font-display text-3xl md:text-5xl text-foreground leading-[1.1] mb-8">
-                {t("A Vancouver Family Enterprise", "溫哥華家族企業")}
+                {t("A Vancouver Family Enterprise Platform", "溫哥華家族企業平台")}
               </h2>
               <div className="divider-accent mb-8" />
               <p className="text-muted-foreground leading-[1.8] text-[15px] mb-6">
                 {t(
-                  "Founded in Vancouver, Canada in 1995, HSIN HSIN is a diversified family enterprise group spanning art craftsmanship, cultural education, event planning, lifestyle retail, and digital brand strategy. Guided by the values of professionalism, innovation, and long-term stewardship, the group continues to evolve across generations while remaining rooted in community, culture, and quality.",
-                  "欣欣企業成立於 1995 年加拿大溫哥華，是一個橫跨藝術工藝、文化教育、活動策劃、生活選品與品牌數位整合的家族企業集團。集團以「專業、創新、非凡」為核心精神，結合文化、美學、創意與永續價值，持續推動品牌升級、社區連結與世代傳承。"
+                  "Founded in Vancouver in 1995, HSIN HSIN has evolved from a craftsmanship studio into a multi-layered platform integrating craftsmanship, culture, capital, brand systems, and the lifestyle economy. We don't build projects — we build platforms that scale.",
+                  "欣欣於 1995 年在溫哥華創立，從工藝工作室發展為融合工藝、文化、資本、品牌系統與生活方式經濟的多層次平台。我們不做單一項目，我們打造可持續放大的平台。"
                 )}
               </p>
               <blockquote className="border-l-2 border-accent/40 pl-6 text-foreground/80 italic font-display text-xl md:text-2xl leading-snug">
                 {t(
                   "Professional · Innovative · Extraordinary — Rooted in Value.",
-                  "專業・創新・非凡，為價值而生。永續經營，世代傳承。"
+                  "專業・創新・非凡，為價值而生。"
                 )}
               </blockquote>
               <div className="mt-10">
@@ -288,23 +361,160 @@ const Index = () => {
       </section>
 
 
+      {/* ═══════════ STRATEGIC POSITIONING ═══════════ */}
+      <section className="py-24 md:py-36 bg-secondary">
+        <div className="section-container">
+          <div className="max-w-3xl mb-16">
+            <p className="label-accent mb-4">{t("Strategic Positioning", "策略定位")}</p>
+            <h2 className="font-display text-3xl md:text-5xl text-foreground leading-[1.1] mb-8">
+              {t(
+                "HSIN HSIN is not a traditional company — we are a multi-layered platform.",
+                "欣欣不是一家傳統公司——我們是一個多層次的整合平台。"
+              )}
+            </h2>
+            <div className="divider-accent" />
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-border mb-16">
+            {[
+              { en: "Craftsmanship", zh: "工藝" },
+              { en: "Culture", zh: "文化" },
+              { en: "Capital", zh: "資本" },
+              { en: "Brand Systems", zh: "品牌系統" },
+              { en: "Lifestyle Economy", zh: "生活方式經濟" },
+            ].map((p, i) => (
+              <div key={i} className="bg-secondary p-8 text-center">
+                <p className="text-accent font-display text-2xl mb-3">0{i + 1}</p>
+                <p className="font-display text-base md:text-lg text-foreground leading-snug">{t(p.en, p.zh)}</p>
+              </div>
+            ))}
+          </div>
+          <div className="max-w-3xl">
+            <p className="font-display text-3xl md:text-4xl text-foreground leading-tight mb-3">
+              {t("We don't build projects.", "我們不做單一項目。")}
+            </p>
+            <p className="font-display text-3xl md:text-4xl text-accent italic leading-tight">
+              {t("We build platforms that scale.", "我們打造可持續放大的平台。")}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ CEO TEASER ═══════════ */}
+      <section className="bg-primary text-primary-foreground py-24 md:py-36">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-5">
+              <p className="label-accent text-accent/70 mb-4">{t("CEO Profile", "執行長")}</p>
+              <h2 className="font-display text-4xl md:text-5xl text-primary-foreground leading-[1.05] mb-4">
+                Emily Lin
+              </h2>
+              <p className="font-display text-2xl text-accent/80 italic mb-6">林欣怡</p>
+              <p className="text-primary-foreground/60 text-sm uppercase tracking-[0.2em] font-medium mb-8">
+                {t(
+                  "Building Platforms that Connect Culture, Business and Legacy",
+                  "連結文化、商業與傳承的平台建構者"
+                )}
+              </p>
+              <div className="w-12 h-[1.5px] bg-accent/50 mb-8" />
+              <ul className="space-y-2 text-primary-foreground/50 text-sm">
+                <li>● {t("CEO · HSIN HSIN HOLDINGS", "執行長 · 欣欣控股")}</li>
+                <li>● {t("President · HH Nexus Capital", "總裁 · 衡寰國際資本")}</li>
+              </ul>
+            </div>
+            <div className="lg:col-span-7 space-y-5 text-primary-foreground/55 leading-[1.9] text-[15px]">
+              <p>
+                {t(
+                  "A cross-disciplinary value architect with a background spanning luxury brands — Maison Birks, Van Cleef & Arpels, and Tiffany & Co. — high-end client relationship management, and the long-term cultivation of brand trust.",
+                  "跨界時代的價值建築者，背景橫跨國際精品品牌——Maison Birks、梵克雅寶與 Tiffany & Co.——高端客戶關係管理與品牌長期信任的建立。"
+                )}
+              </p>
+              <blockquote className="border-l-2 border-accent/50 pl-6 font-display italic text-xl md:text-2xl text-primary-foreground/90 leading-snug">
+                {t(
+                  "“Success only matters when it is transformed into lasting value.”",
+                  "「成功，只有轉化為長期價值，才有意義。」"
+                )}
+              </blockquote>
+              <div className="pt-4">
+                <Link
+                  to="/founder"
+                  className="inline-flex items-center gap-2 text-accent text-[13px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all"
+                >
+                  {t("Read full biography", "閱讀完整簡介")} <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ IMPACT & VISION ═══════════ */}
+      <section className="py-24 md:py-36">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-5">
+              <p className="label-accent mb-4">{t("Impact & Vision", "影響力與願景")}</p>
+              <h2 className="font-display text-3xl md:text-5xl text-foreground leading-[1.1] mb-8">
+                {t("A platform validated by time", "一個能被時間驗證的價值系統")}
+              </h2>
+              <div className="divider-accent mb-8" />
+              <p className="text-muted-foreground leading-[1.9] text-[15px]">
+                {t(
+                  "We aim to build not just a company, but a value system that endures — measured not by quarters, but by generations.",
+                  "我們希望建立的不只是企業，而是一個能被時間驗證的價值系統——不以季度衡量，而以世代為單位。"
+                )}
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <ul className="space-y-px bg-border">
+                {[
+                  { en: "Connects business and culture", zh: "連結商業與文化" },
+                  { en: "Elevates lifestyle standards", zh: "提升生活方式標準" },
+                  { en: "Creates long-term brand equity", zh: "創造長期品牌價值" },
+                  { en: "Generates sustainable social impact", zh: "產生永續的社會影響力" },
+                ].map((v, i) => (
+                  <li key={i} className="bg-background flex items-start gap-6 py-6 px-2">
+                    <span className="text-accent font-display text-xl w-10 flex-shrink-0">0{i + 1}</span>
+                    <span className="font-display text-xl md:text-2xl text-foreground leading-snug">
+                      {t(v.en, v.zh)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ BRAND STATEMENT ═══════════ */}
+      <section className="bg-primary text-primary-foreground py-28 md:py-40">
+        <div className="section-container text-center max-w-4xl mx-auto">
+          <p className="label-accent text-accent/70 mb-8">{t("Brand Statement", "品牌宣言")}</p>
+          <p className="font-display text-3xl md:text-5xl lg:text-6xl text-primary-foreground leading-[1.15] mb-6">
+            {t(
+              "A platform where craftsmanship meets culture, and business becomes lasting value.",
+              "在工藝與文化之間，讓商業成為可以被時間留下的價值。"
+            )}
+          </p>
+        </div>
+      </section>
+
       {/* ═══════════ CTA STRIP ═══════════ */}
       <section className="bg-secondary py-20 md:py-28">
         <div className="section-container text-center">
           <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
-            {t("Explore Our Latest Insights", "探索我們的最新觀點")}
+            {t("Partner With Us", "合作發展")}
           </h2>
           <p className="text-muted-foreground text-sm max-w-md mx-auto mb-8">
             {t(
-              "Perspectives on craftsmanship, culture, enterprise, and modern brand building.",
-              "關於工藝、文化、企業與現代品牌建設的觀點。"
+              "Explore collaboration, investment, and strategic partnership opportunities across our platform.",
+              "探索跨平台的合作、投資與策略夥伴關係機會。"
             )}
           </p>
           <Link
-            to="/insights"
+            to="/contact"
             className="inline-flex items-center gap-2 text-accent text-[13px] font-medium tracking-[0.1em] uppercase hover:gap-3 transition-all"
           >
-            {t("Read Insights", "閱讀觀點")} <ArrowRight size={14} />
+            {t("Get in touch", "聯絡我們")} <ArrowRight size={14} />
           </Link>
         </div>
       </section>

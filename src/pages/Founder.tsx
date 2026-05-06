@@ -84,12 +84,27 @@ const Founder = () => {
               </p>
               <p className="text-primary-foreground/30 text-xs mt-1.5">Vancouver, BC, Canada</p>
             </div>
-            <div className="lg:col-span-8 space-y-5 text-primary-foreground/50 leading-[1.8] text-[15px]">
+            <div className="lg:col-span-8 space-y-5 text-primary-foreground/55 leading-[1.9] text-[15px]">
               <h3 className="font-display text-2xl text-primary-foreground mb-2">{t("Emily Lin 林欣怡", "Emily Lin 林欣怡")}</h3>
-              <p>{t("Emily Lin is a cross-disciplinary entrepreneur and brand strategist, currently leading HH Nexus Capital while also driving the long-term development of the broader family enterprise. Her experience spans craftsmanship industries, luxury jewelry, high-net-worth client service, integrated brand strategy, and city-scale cultural event planning.", "Emily Lin 林欣怡為跨界企業領導者與品牌策略顧問，現任衡寰國際資本（HH Nexus Capital）總裁，長期活躍於工藝產業、精品珠寶、高端客戶服務、品牌整合行銷與城市文化活動策劃等領域。")}</p>
-              <p>{t("She previously served as a senior luxury advisor at Canada's historic jewelry house Maison Birks and acted as a brand ambassador for Van Cleef & Arpels, Graff, and Maison Birks. During that period, she achieved the North America Million Dollar Writer distinction for seven consecutive years. She also built extensive experience across the international luxury jewelry sector, including BVLGARI, Cartier, Montblanc, Tiffany & Co., and Chaumet.", "她曾於加拿大百年珠寶品牌 Maison Birks 任職高端品牌顧問，並擔任 Van Cleef & Arpels 梵克雅寶、Graff 格拉夫及 Maison Birks 品牌大使，期間連續七屆榮獲「North America Million Dollar Writer」百萬銷售殊榮。其後亦於 BVLGARI、Cartier、Montblanc、Tiffany & Co. 與 Chaumet 等國際頂級珠寶品牌體系中累積深厚的高端客戶管理與珠寶鑑賞經驗。")}</p>
-              <p>{t("After returning to the family enterprise, Emily established HH Nexus Capital as a broader group structure and expanded multiple platforms including Hsin Hsin Events & PR and La Petite Elli Coffee & Tea. Her work has focused on connecting craftsmanship heritage, cultural programming, healthy lifestyle products, and modern brand development into a more contemporary and digitally capable ecosystem.", "回歸家族企業後，她整合成立衡寰國際資本（HH Nexus Capital），並拓展多元品牌平台，包括 Hsin Hsin Events & PR（欣欣向榮活動策劃公關公司）與生活方式品牌 La Petite Elli Coffee & Tea，致力於結合文化創意、城市活動與健康生活產業，推動企業品牌年輕化與數位化發展。")}</p>
-              <p>{t("Emily is also deeply committed to philanthropy and public service. As a Fundraising Chair for the Canadian Liver Foundation, she helped raise over CAD $2 million for liver disease and hepatitis research. In recognition of her contributions to community and cultural initiatives, she received the Outstanding Woman of Vancouver Award in 2023.", "Emily Lin 同時積極投入社會公益，曾擔任加拿大肝臟基金會募款主席，成功募得超過兩百萬加元作為肝臟疾病研究基金。她亦長期支持文化與社區公益活動，並於 2023 年獲頒「溫哥華傑出女士」榮譽獎項。")}</p>
+              <p className="text-accent/80 italic font-display text-lg mb-4">
+                {t(
+                  "A value architect for the cross-disciplinary era — building platforms that connect culture, business and legacy.",
+                  "跨界時代的價值建築者——建構連結文化、商業與傳承的平台。"
+                )}
+              </p>
+              <p>{t("Emily Lin is the CEO of HSIN HSIN HOLDINGS LTD. and President of HH Nexus Capital, recognized for a leadership approach centered on platform development and long-term value integration.", "Emily Lin 為欣欣控股有限公司（HSIN HSIN HOLDINGS LTD.）執行長，同時擔任 HH Nexus Capital 總裁，為一位專注於平台建構與長期價值整合的企業領導者。")}</p>
+              <p>{t("With a cross-disciplinary background spanning family enterprise governance, brand strategy, luxury client relations, and cultural programming, Emily specializes in transforming fragmented resources into structured, scalable business systems.", "其專業橫跨家族企業治理、品牌策略、精品客戶經營及文化活動整合，擅長將分散資源轉化為具結構性的商業系統，並透過平台化思維推動企業的可持續成長與跨領域連結。")}</p>
+              <p>{t("Her early career includes extensive experience in the luxury retail and fine jewelry sector, where she developed expertise in brand development, client relationship management, and market expansion, with professional experience across brands such as Maison Birks, Van Cleef & Arpels, and Tiffany & Co.", "在職涯發展中，Emily 曾於國際精品與高端零售體系中累積豐富經驗，涵蓋品牌經營、客戶關係管理與市場拓展，並於 Maison Birks、Van Cleef & Arpels、Tiffany & Co. 等品牌體系中建立卓越業績與長期客戶關係。")}</p>
+              <p>{t("She is known not only for commercial performance, but for her ability to convert individual transactions into long-term trust, and further into sustainable brand and relationship ecosystems.", "其專業優勢不僅在於商業成果，更在於將「一次交易」轉化為「長期信任」，並進一步轉化為可持續放大的品牌與資源網絡。")}</p>
+              <p>{t("In recent years, Emily has led the strategic integration of multiple business units under HSIN HSIN HOLDINGS LTD., expanding the organization from its craftsmanship roots into a diversified platform across culture, branding, events, and lifestyle sectors.", "近年來，Emily 回歸家族企業，整合工藝、文化、品牌、活動與生活方式事業，帶領欣欣控股由傳統產業基礎，升級為多元整合的企業平台。")}</p>
+              <p>{t("Her strategic focus lies in building business structures that are scalable, replicable, and enduring, positioning the organization for long-term growth and cross-industry impact.", "其核心策略在於建立「可延展、可複製、可放大」的商業結構，使企業具備長期競爭力與跨產業影響力。")}</p>
+              <p>{t("Beyond business, she is actively engaged in community and philanthropic initiatives, advocating for the alignment of commercial success with social contribution and cultural connectivity.", "除商業領域外，Emily 長期參與社區與公益事務，致力於將企業影響力轉化為社會價值，推動文化連結、社區發展與多元合作。")}</p>
+              <blockquote className="border-l-2 border-accent/50 pl-6 font-display italic text-xl text-primary-foreground/90 leading-snug mt-6">
+                {t(
+                  "Success only matters when it creates lasting value.",
+                  "成功，只有轉化為長期價值，才有意義。"
+                )}
+              </blockquote>
             </div>
           </div>
 
