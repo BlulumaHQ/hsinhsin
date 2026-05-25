@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import { ArrowRight } from "lucide-react";
 import foundersImg from "@/assets/founders-portrait.webp";
 import founderHeritageImg from "@/assets/founder-heritage.webp";
-import ceoImg from "@/assets/founder-portrait-new.webp";
+import ceoImg from "@/assets/emily-lin.webp";
 
 const Founder = () => {
   const { t } = useLanguage();
