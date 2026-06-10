@@ -5,7 +5,7 @@ import { companies } from "@/data/companies";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import StructuredData from "@/components/StructuredData";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import heroSlide1 from "@/assets/hero-slide-1-new.webp";
 import heroSlide2 from "@/assets/hero-slide-2-new.webp";
@@ -334,9 +334,7 @@ const Index = () => {
                   </p>
 
                   <span className="inline-flex items-center gap-1.5 text-accent/70 text-[12px] font-medium tracking-[0.1em] uppercase group-hover:gap-2.5 group-hover:text-accent transition-all">
-                    {company.external ? (
-                      <>{t("Visit Website", "訪問網站")} <ExternalLink size={12} /></>
-                    ) : company.ctaLabelEn ? (
+                    {company.ctaLabelEn ? (
                       <>{t(company.ctaLabelEn, company.ctaLabelZh || company.ctaLabelEn)} <ArrowRight size={12} /></>
                     ) : (
                       <>{t("Learn More", "了解更多")} <ArrowRight size={12} /></>
@@ -345,13 +343,6 @@ const Index = () => {
                 </article>
               );
 
-              if (company.external) {
-                return (
-                  <a key={company.id} href={company.external} target="_blank" rel="noopener noreferrer">
-                    {card}
-                  </a>
-                );
-              }
               const to = company.customPath || `/companies/${company.id}`;
               return (
                 <Link key={company.id} to={to}>

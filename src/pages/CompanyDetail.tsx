@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { companies } from "@/data/companies";
-import { ArrowLeft, CheckCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react";
 
 const CompanyDetail = () => {
   const { id } = useParams();
@@ -12,10 +12,6 @@ const CompanyDetail = () => {
   const company = companies.find((c) => c.id === id);
 
   if (!company) return <Navigate to="/companies" replace />;
-  if (company.external) {
-    window.location.href = company.external;
-    return null;
-  }
 
   return (
     <Layout>
@@ -85,6 +81,33 @@ const CompanyDetail = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+              )}
+
+              {company.external && (
+                <div className="bg-secondary border-l-2 border-accent p-10 mt-12">
+                  <p className="label-accent mb-3">{t("Official Website", "官方網站")}</p>
+                  <h3 className="font-display text-xl text-foreground mb-4">
+                    {t(
+                      `Explore the full ${company.nameEn} experience`,
+                      `探索 ${company.nameZh} 的完整體驗`
+                    )}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-6 max-w-xl leading-relaxed">
+                    {t(
+                      "Continue to the dedicated official site for complete services, portfolio, and direct engagement.",
+                      "前往官方網站，了解完整的服務、作品集與聯繫方式。"
+                    )}
+                  </p>
+                  <a
+                    href={company.external}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary bg-accent text-accent-foreground hover:bg-warm-dark inline-flex items-center gap-2"
+                  >
+                    {t("Visit Official Website", "訪問官方網站")}
+                    <ExternalLink size={14} />
+                  </a>
                 </div>
               )}
 

@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { companies } from "@/data/companies";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const ecosystemCategories = [
   { en: "Craftsmanship", zh: "工藝" },
@@ -85,58 +85,45 @@ const Companies = () => {
                 </div>
 
                 {categoryCompanies.map((company) => {
-                  const content = (
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center group">
-                      <div className="lg:col-span-4">
-                        <div className="bg-secondary w-full h-[220px] flex items-center justify-center overflow-hidden">
-                          <img
-                            src={company.logo}
-                            alt={`${company.nameEn} logo`}
-                            className="w-[85%] h-[75%] object-contain"
-                          />
-                        </div>
-                      </div>
-                      <div className="lg:col-span-8">
-                        <p className="label-accent mb-2">
-                          {t(company.categoryEn, company.categoryZh)}
-                        </p>
-                        <h3 className="font-display text-2xl md:text-3xl text-foreground mb-2 leading-snug">
-                          {t(company.nameEn, company.nameZh)}
-                        </h3>
-                        <p className="text-muted-foreground/40 text-xs mb-4 italic font-display text-lg">
-                          {t(company.taglineEn, company.taglineZh)}
-                        </p>
-                        <p className="text-muted-foreground leading-[1.8] text-[15px] mb-6 max-w-xl">
-                          {t(company.descEn, company.descZh)}
-                        </p>
-                        <span className="inline-flex items-center gap-1.5 text-accent text-[12px] font-medium tracking-[0.1em] uppercase group-hover:gap-3 transition-all">
-                          {company.external ? (
-                            <>{t("Visit Website", "訪問網站")} <ExternalLink size={13} /></>
-                          ) : (
-                            <>{t("Learn More", "了解更多")} <ArrowRight size={13} /></>
-                          )}
-                        </span>
-                      </div>
-                    </div>
-                  );
-
-                  return company.external ? (
-                    <a
-                      key={company.id}
-                      href={company.external}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block border-b border-border/50 pb-12 mb-12 last:border-0 last:pb-0 last:mb-0"
-                    >
-                      {content}
-                    </a>
-                  ) : (
+                  const to = company.customPath || `/companies/${company.id}`;
+                  return (
                     <Link
                       key={company.id}
-                      to={`/companies/${company.id}`}
+                      to={to}
                       className="block border-b border-border/50 pb-12 mb-12 last:border-0 last:pb-0 last:mb-0"
                     >
-                      {content}
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center group">
+                        <div className="lg:col-span-4">
+                          <div className="bg-secondary w-full h-[220px] flex items-center justify-center overflow-hidden">
+                            <img
+                              src={company.logo}
+                              alt={`${company.nameEn} logo`}
+                              className="w-[85%] h-[75%] object-contain"
+                            />
+                          </div>
+                        </div>
+                        <div className="lg:col-span-8">
+                          <p className="label-accent mb-2">
+                            {t(company.categoryEn, company.categoryZh)}
+                          </p>
+                          <h3 className="font-display text-2xl md:text-3xl text-foreground mb-2 leading-snug">
+                            {t(company.nameEn, company.nameZh)}
+                          </h3>
+                          <p className="text-muted-foreground/40 text-xs mb-4 italic font-display text-lg">
+                            {t(company.taglineEn, company.taglineZh)}
+                          </p>
+                          <p className="text-muted-foreground leading-[1.8] text-[15px] mb-6 max-w-xl">
+                            {t(company.descEn, company.descZh)}
+                          </p>
+                          <span className="inline-flex items-center gap-1.5 text-accent text-[12px] font-medium tracking-[0.1em] uppercase group-hover:gap-3 transition-all">
+                            {company.ctaLabelEn ? (
+                              <>{t(company.ctaLabelEn, company.ctaLabelZh || company.ctaLabelEn)} <ArrowRight size={13} /></>
+                            ) : (
+                              <>{t("Learn More", "了解更多")} <ArrowRight size={13} /></>
+                            )}
+                          </span>
+                        </div>
+                      </div>
                     </Link>
                   );
                 })}
