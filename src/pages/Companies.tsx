@@ -35,9 +35,8 @@ const PortfolioCard = ({ company }: { company: Company }) => {
       to={to}
       className="group relative flex flex-col bg-background border border-border/60 hover:border-accent/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_hsl(var(--foreground)/0.25)]"
     >
-      <div className="px-8 pt-8 pb-6 flex items-center justify-between border-b border-border/40">
+      <div className="px-8 pt-8 pb-6 flex items-center border-b border-border/40">
         <p className="label-accent">{t(company.categoryEn, company.categoryZh)}</p>
-        <StatusBadge status={status} />
       </div>
 
       <div className="px-8 py-10 bg-secondary/40 flex items-center justify-center h-[180px]">
