@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { companies } from "@/data/companies";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const ecosystemCategories = [
   { en: "Craftsmanship", zh: "工藝" },

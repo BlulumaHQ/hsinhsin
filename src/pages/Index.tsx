@@ -5,7 +5,7 @@ import { companies } from "@/data/companies";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import StructuredData from "@/components/StructuredData";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import heroSlide1 from "@/assets/hero-slide-1-new.webp";
 import heroSlide2 from "@/assets/hero-slide-2-new.webp";
