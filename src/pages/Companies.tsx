@@ -39,11 +39,11 @@ const PortfolioCard = ({ company }: { company: Company }) => {
         <p className="label-accent">{t(company.categoryEn, company.categoryZh)}</p>
       </div>
 
-      <div className="px-8 py-10 bg-secondary/40 flex items-center justify-center h-[180px]">
+      <div className="px-8 py-8 flex items-center justify-center">
         <img
           src={company.logo}
           alt={`${company.nameEn} logo`}
-          className="max-h-[110px] max-w-[70%] object-contain transition-transform duration-500 group-hover:scale-105"
+          className="max-w-full h-auto max-h-[120px] object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 

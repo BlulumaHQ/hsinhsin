@@ -25,27 +25,11 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
             {t(company.nameEn, company.nameZh)}
           </h3>
         </div>
-        <div
-          style={{
-            width: "100%",
-            height: "260px",
-            paddingTop: "16px",
-            paddingBottom: "16px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div className="px-6 py-4 flex items-center justify-center">
           <img
             src={company.logo}
             alt={`${company.nameEn} logo`}
-            style={{
-              display: "block",
-              width: "94%",
-              height: "100%",
-              objectFit: "contain",
-              objectPosition: "center center",
-            }}
+            className="max-w-full h-auto max-h-[140px] object-contain"
           />
         </div>
         <div className="px-6 pb-6 flex flex-col flex-1">

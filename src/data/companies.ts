@@ -1,9 +1,9 @@
-import logoHsinFraming from "@/assets/logo-hsin-framing.svg";
-import logoCambridgeArt from "@/assets/logo-cambridge-art.svg";
-import logoHsinPr from "@/assets/logo-hsin-pr.png";
-import logoLaPetiteElli from "@/assets/logo-la-petite-elli.png";
-import logoBluluma from "@/assets/logo-bluluma.svg";
-import logoCloudNine from "@/assets/logo-cloud-nine.png";
+import logoHsinFraming from "@/assets/logo-hsin-framing-new.png";
+import logoCambridgeArt from "@/assets/logo-cambridge-art-new.png";
+import logoHsinPr from "@/assets/logo-hsin-pr-new.png";
+import logoLaPetiteElli from "@/assets/logo-la-petite-elli-new.png";
+import logoBluluma from "@/assets/logo-bluluma-new.png";
+import logoCloudNine from "@/assets/logo-cloud-nine-new.png";
 
 export interface Company {
   id: string;
