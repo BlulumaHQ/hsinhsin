@@ -336,6 +336,8 @@ const Index = () => {
                   <span className="inline-flex items-center gap-1.5 text-accent/70 text-[12px] font-medium tracking-[0.1em] uppercase group-hover:gap-2.5 group-hover:text-accent transition-all">
                     {company.external ? (
                       <>{t("Visit Website", "訪問網站")} <ExternalLink size={12} /></>
+                    ) : company.ctaLabelEn ? (
+                      <>{t(company.ctaLabelEn, company.ctaLabelZh || company.ctaLabelEn)} <ArrowRight size={12} /></>
                     ) : (
                       <>{t("Learn More", "了解更多")} <ArrowRight size={12} /></>
                     )}
@@ -350,8 +352,9 @@ const Index = () => {
                   </a>
                 );
               }
+              const to = company.customPath || `/companies/${company.id}`;
               return (
-                <Link key={company.id} to={`/companies/${company.id}`}>
+                <Link key={company.id} to={to}>
                   {card}
                 </Link>
               );
