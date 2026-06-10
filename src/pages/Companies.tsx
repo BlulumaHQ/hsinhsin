@@ -6,17 +6,6 @@ import SEO from "@/components/SEO";
 import { companies, type Company } from "@/data/companies";
 import { ArrowRight, MapPin, Building2, Layers } from "lucide-react";
 
-type Status = "active" | "growing" | "emerging";
-
-const STATUS_MAP: Record<string, Status> = {
-  "hsin-framing": "active",
-  "cambridge-art": "active",
-  "hsin-events": "growing",
-  "la-petite-elli": "growing",
-  "bluluma": "active",
-  "cloud-nine-college": "growing",
-};
-
 const DESCRIPTION_OVERRIDE: Record<string, { en: string; zh: string }> = {
   "cloud-nine-college": {
     en: "Providing UK University Pathways, Online MBA programs, language education, and international academic opportunities.",
@@ -33,21 +22,6 @@ const FILTERS: { en: string; zh: string; value: string }[] = [
   { en: "Lifestyle", zh: "生活", value: "Lifestyle" },
   { en: "Digital", zh: "數位", value: "Digital" },
 ];
-
-const StatusBadge = ({ status }: { status: Status }) => {
-  const { t } = useLanguage();
-  const config = {
-    active: { dot: "bg-emerald-500", label: t("Active", "營運中") },
-    growing: { dot: "bg-amber-500", label: t("Growing", "成長中") },
-    emerging: { dot: "bg-sky-500", label: t("In Development", "發展中") },
-  }[status];
-  return (
-    <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.12em] uppercase text-muted-foreground">
-      <span className={`w-1.5 h-1.5 rounded-full ${config.dot}`} />
-      {config.label}
-    </span>
-  );
-};
 
 const PortfolioCard = ({ company }: { company: Company }) => {
   const { t } = useLanguage();
