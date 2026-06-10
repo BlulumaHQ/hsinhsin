@@ -14,6 +14,7 @@ import Founder from "./pages/Founder";
 import Community from "./pages/Community";
 import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
+import CloudNineCollege from "./pages/CloudNineCollege";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/community" element={<Community />} />
               <Route path="/insights" element={<Insights />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/cloud-nine-college" element={<CloudNineCollege />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
