@@ -26,7 +26,6 @@ const FILTERS: { en: string; zh: string; value: string }[] = [
 const PortfolioCard = ({ company }: { company: Company }) => {
   const { t } = useLanguage();
   const to = company.customPath || `/companies/${company.id}`;
-  const status = STATUS_MAP[company.id] ?? "active";
   const desc = DESCRIPTION_OVERRIDE[company.id]
     ? t(DESCRIPTION_OVERRIDE[company.id].en, DESCRIPTION_OVERRIDE[company.id].zh)
     : t(company.descEn, company.descZh);
