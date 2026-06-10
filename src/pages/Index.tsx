@@ -321,11 +321,11 @@ const Index = () => {
                   </h3>
 
                   {/* Logo panel */}
-                  <div className="bg-primary-foreground/5 w-full h-[180px] flex items-center justify-center mb-6 overflow-hidden">
+                  <div className="bg-background w-full flex items-center justify-center mb-6 py-6 px-4">
                     <img
                       src={company.logo}
                       alt={`${company.nameEn} logo`}
-                      className="w-[88%] h-[80%] object-contain"
+                      className="max-w-full h-auto object-contain"
                     />
                   </div>
 
