@@ -3,6 +3,7 @@ import logoCambridgeArt from "@/assets/logo-cambridge-art.svg";
 import logoHsinPr from "@/assets/logo-hsin-pr.png";
 import logoLaPetiteElli from "@/assets/logo-la-petite-elli.png";
 import logoBluluma from "@/assets/logo-bluluma.svg";
+import logoCloudNine from "@/assets/logo-cloud-nine.png";
 
 export interface Company {
   id: string;
@@ -25,6 +26,9 @@ export interface Company {
   servicesZh: string[];
   logo: string;
   external?: string;
+  customPath?: string;
+  ctaLabelEn?: string;
+  ctaLabelZh?: string;
 }
 
 export const companies: Company[] = [
@@ -231,5 +235,29 @@ export const companies: Company[] = [
     servicesZh: [],
     logo: logoBluluma,
     external: "https://bluluma.com",
+  },
+  {
+    id: "cloud-nine-college",
+    nameEn: "Cloud Nine College",
+    nameZh: "九霄學院",
+    taglineEn: "UK University Pathway & Online MBA",
+    taglineZh: "英國大學銜接與線上 MBA",
+    descEn: "A global education platform offering UK university pathways and an internationally recognized Online MBA designed for working professionals.",
+    descZh: "全球教育平台，提供英國大學銜接課程與國際認可的線上 MBA，專為在職專業人士設計。",
+    categoryEn: "Education",
+    categoryZh: "教育",
+    industryEn: "International Education",
+    industryZh: "國際教育",
+    location: "Vancouver, Canada",
+    overviewEn: "Cloud Nine College is the group's international education platform.",
+    overviewZh: "九霄學院是集團的國際教育平台。",
+    detailEn: [],
+    detailZh: [],
+    servicesEn: [],
+    servicesZh: [],
+    logo: logoCloudNine,
+    customPath: "/cloud-nine-college",
+    ctaLabelEn: "Explore Programs",
+    ctaLabelZh: "探索課程",
   },
 ];
