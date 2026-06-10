@@ -29,7 +29,10 @@ export interface Company {
   customPath?: string;
   ctaLabelEn?: string;
   ctaLabelZh?: string;
+  status?: "active" | "growing" | "emerging";
+  established?: string;
 }
+
 
 export const companies: Company[] = [
   {
