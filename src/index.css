@@ -72,9 +72,9 @@
   .hero-slide-overlay {
     background: linear-gradient(
       135deg,
-      rgba(58, 54, 51, 0.78) 0%,
-      rgba(58, 54, 51, 0.55) 50%,
-      rgba(58, 54, 51, 0.35) 100%
+      rgba(18, 20, 26, 0.70) 0%,
+      rgba(20, 22, 28, 0.45) 50%,
+      rgba(22, 24, 30, 0.25) 100%
     );
   }
 
