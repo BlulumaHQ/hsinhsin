@@ -278,6 +278,7 @@ const companiesData: Company[] = [
     customPath: "/cloud-nine-college",
     ctaLabelEn: "Explore Programs",
     ctaLabelZh: "探索課程",
+  },
 ];
 
 // Display order across Homepage and Companies page: HSIN HSIN PR first, then Cloud Nine,
