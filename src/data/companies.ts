@@ -34,7 +34,7 @@ export interface Company {
 }
 
 
-export const companies: Company[] = [
+const companiesData: Company[] = [
   {
     id: "hsin-framing",
     nameEn: "Hsin Framing & Moulding",
