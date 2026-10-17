@@ -278,5 +278,19 @@ const companiesData: Company[] = [
     customPath: "/cloud-nine-college",
     ctaLabelEn: "Explore Programs",
     ctaLabelZh: "探索課程",
-  },
 ];
+
+// Display order across Homepage and Companies page: HSIN HSIN PR first, then Cloud Nine,
+// Bluluma, Hsin Framing, Cambridge Art, La Petite Elli.
+const companyOrder = [
+  "hsin-events",
+  "cloud-nine-college",
+  "bluluma",
+  "hsin-framing",
+  "cambridge-art",
+  "la-petite-elli",
+];
+
+export const companies: Company[] = companyOrder
+  .map((id) => companiesData.find((c) => c.id === id))
+  .filter((c): c is Company => Boolean(c));
