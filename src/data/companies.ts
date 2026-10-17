@@ -34,7 +34,7 @@ export interface Company {
 }
 
 
-export const companies: Company[] = [
+const companiesData: Company[] = [
   {
     id: "hsin-framing",
     nameEn: "Hsin Framing & Moulding",
@@ -280,3 +280,18 @@ export const companies: Company[] = [
     ctaLabelZh: "探索課程",
   },
 ];
+
+// Display order across Homepage and Companies page: HSIN HSIN PR first, then Cloud Nine,
+// Bluluma, Hsin Framing, Cambridge Art, La Petite Elli.
+const companyOrder = [
+  "hsin-events",
+  "cloud-nine-college",
+  "bluluma",
+  "hsin-framing",
+  "cambridge-art",
+  "la-petite-elli",
+];
+
+export const companies: Company[] = companyOrder
+  .map((id) => companiesData.find((c) => c.id === id))
+  .filter((c): c is Company => Boolean(c));
