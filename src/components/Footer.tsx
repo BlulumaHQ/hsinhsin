@@ -79,8 +79,8 @@ const Footer = () => {
           </p>
           <p className="text-primary-foreground/25 text-[11px] tracking-wider">
             Web Design by{" "}
-            <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="text-accent/70 hover:text-accent transition-colors">
-              Bluluma
+            <a href="https://sonykundesign.com" target="_blank" rel="noopener noreferrer" className="text-accent/70 hover:text-accent transition-colors">
+              Sonykun Design
             </a>
           </p>
         </div>
